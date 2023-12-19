@@ -8,9 +8,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 32px;
+    padding: 0 12px;
     background-color: black;
-    color: #40CD32;
+    color: #FFFFFF;
     border-bottom: 1px solid #3CBE6B;
 }
 
@@ -22,17 +22,11 @@ nav {
     align-items: center;
 }
 
-.logo-container img {
-    width: 350px;
-    margin: 8px;
-}
-
 /* EMAIL-BUTTON-MENU CONTAINER */
 
 .button-menu-container {
     display: flex;
     flex-direction: row;
-    gap: 32px;
 }
 
 /* LOGOUT BUTTON & EMAIL-NAME */
@@ -42,8 +36,6 @@ nav {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    flex-basis: 400px;
-    gap: 32px;
 }
 
 .displayEmail {
@@ -64,7 +56,6 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 20px;
 }
 
 .menu-icon {
@@ -72,10 +63,7 @@ nav {
 }
 
 .bar {
-    width: 30px;
-    height: 3px;
     background-color: #3CBE6B;
-    margin: 5px 0;
     transition: 0.4s;
 }
 
@@ -88,12 +76,9 @@ nav {
     gap: 10px;
     margin: 0;
     padding: 20px;
-    top: 110px;
-    right: 75px;
     border-radius: 5px;
     border: 1px solid #FFFFFF;
     background-color: #3CBE6B;
-    /*visibility: hidden;*/
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
@@ -102,24 +87,127 @@ nav {
     color: black;
 }
 
-.hamburger-menu.open .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger-menu.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.open .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
 .hamburger-menu.open .menu-items {
     visibility: visible;
     opacity: 1;
 }
 
+/* Media query for smartphones */
+@media screen and (max-width: 650px) {
+    .logo-container img {
+        width: 150px;
+        margin: 4px;
+    }
+    .menu-items {
+        right: 25px;
+        top: 50px;
+        font-size: 12px;
+        gap: 10px;
+        padding: 20px;
+    }
+    .button-menu-container {
+        gap: 12px;
+    }
+    .logout-name-div {
+        flex-basis: 200px;
+        gap: 12px;
+    }
+    .hamburger-menu {
+        padding: 5px;
+    }
+    .bar {
+        width: 20px;
+        height: 2px;
+        margin: 6px 0;
+    }
+    .hamburger-menu.open .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-menu.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.open .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
 
+/* Media query for tablets */
+@media screen and (min-width: 651px) and (max-width: 1280px) {
+    .logo-container img {
+        width: 250px;
+        margin: 6px;
+    }
+    .menu-items {
+        right: 50px;
+        top: 75px;
+        font-size: 16px;
+        gap: 10px;
+        padding: 20px;
+    }
+    .button-menu-container {
+        gap: 24px;
+    }
+    .logout-name-div {
+        flex-basis: 300px;
+        gap: 24px;
+    }
+    .hamburger-menu {
+        padding: 15px;
+    }
+    .bar {
+        width: 25px;
+        height: 2px;
+        margin: 8px 0;
+    }
+    .hamburger-menu.open .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+    .hamburger-menu.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.open .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-8px, -6px);
+    }
+}
+
+/* Media query for laptops and widescreen displays */
+@media screen and (min-width: 1281px) {
+    .logo-container img {
+        width: 350px;
+        margin: 8px;
+    }
+    .menu-items {
+        right: 75px;
+        top: 100px;
+        font-size: 18px;
+        gap: 10px;
+        padding: 20px;
+    }
+    .button-menu-container {
+        gap: 32px;
+    }
+    .logout-name-div {
+        flex-basis: 400px;
+        gap: 32px;
+    }
+    .hamburger-menu {
+        padding: 20px;
+    }
+    .bar {
+        width: 30px;
+        height: 3px;
+        margin: 10px 0;
+    }
+    .hamburger-menu.open .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-12px, 6px);
+    }
+    .hamburger-menu.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.open .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-12px, -6px);
+    }
+}
 
 
 

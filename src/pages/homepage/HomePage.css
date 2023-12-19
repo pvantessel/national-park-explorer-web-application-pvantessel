@@ -15,22 +15,13 @@ header {
 
 .header-content {
     max-width: 1100px;
-    padding: 200px 0 150px 0;
     margin: 0 ;
     color: white;
 }
 
-.header-content h1 {
-    margin: 20px;
-}
-
-.header-content h4 {
-    margin: 30px;
-}
-
 /* MAIN */
 
-.homePage-outer-container {
+.homePageCard-outer-container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -46,8 +37,6 @@ header {
     flex-wrap: wrap;
     flex-shrink: 1;
     flex-grow: 0;
-    gap: 50px;
-    margin: 100px 0;
 }
 
 .classHomePageCard {
@@ -65,7 +54,21 @@ header {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 767px) {
+/* Media query for smartphones */
+@media screen and (max-width: 650px) {
+    .header-content {
+        padding: 100px 0 40px 0;
+    }
+    .header-content h1 {
+        margin: 10px;
+    }
+    .header-content h4 {
+        margin: 20px;
+    }
+    .homePageCard-inner-container {
+        margin: 25px 0;
+        gap: 10px;
+    }
     .classHomePageCard {
         width: 300px;
         height: 200px;
@@ -73,17 +76,77 @@ header {
 }
 
 /* Media query for tablets */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 651px) and (max-width: 1280px) {
+    .header-content {
+        padding: 150px 0 100px 0;
+    }
+    .header-content h1 {
+        margin: 15px;
+    }
+    .header-content h4 {
+        margin: 25px;
+    }
+    .homePageCard-inner-container {
+        margin: 50px 0;
+        gap: 20px;
+    }
     .classHomePageCard {
         width: 450px;
         height: 300px;
     }
 }
 
-/* Media query for laptops and widescreen displays*/
-@media screen and (min-width: 1024px) {
+/* Media query for laptops and widescreen displays */
+@media screen and (min-width: 1281px) {
+    .header-content {
+        padding: 200px 0 150px 0;
+    }
+    .header-content h1 {
+        margin: 20px;
+    }
+    .header-content h4 {
+        margin: 30px;
+    }
+    .homePageCard-inner-container {
+        margin: 75px 0;
+        gap: 30px;
+    }
     .classHomePageCard {
         width: 600px;
         height: 400px;
     }
+}
+
+
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0;
+    border: 2px solid red;
+}
+
+.copyright-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border: 2px solid blue;
+}
+
+.social-media-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap:30px;
+    padding:0 20px;
+    border: 2px solid green;
+}
+
+.style-icon {
+    width: 40px;
+    height: 40px;
 }

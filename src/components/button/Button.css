@@ -2,12 +2,9 @@
 .styleButton {
     border-radius: 4px;
     padding: 8px 16px;
-    width: 125px;
     background-color: #3CBE6B;
     border: 1px solid white;
     color: white;
-    font-size: 16px;
-    /*font-weight: bold;*/
     outline: none;
 }
 
@@ -18,5 +15,38 @@
 
 .styleButton + .styleButton {
     margin-left: 12px;
+}
+
+/* Media query for smartphones */
+@media screen and (max-width: 650px) {
+    .styleButton {
+        width: 80px; /* Adjust the logo size for smaller screens */
+        font-size: 10px;
+    }
+    .styleButton + .styleButton {
+        margin-left: 6px;
+    }
+}
+
+/* Media query for tablets */
+@media screen and (min-width: 651px) and (max-width: 1280px) {
+    .styleButton {
+        width: 100px; /* Adjust the logo size for smaller screens */
+        font-size: 12px;
+    }
+    .styleButton + .styleButton {
+        margin-left: 8px;
+    }
+}
+
+/* Media query for laptops and widescreen displays */
+@media screen and (min-width: 1281px) {
+    .styleButton {
+        width: 125px; /* Adjust the logo size for smaller screens */
+        font-size: 16px;
+    }
+    .styleButton + .styleButton {
+        margin-left: 12px;
+    }
 }
 
