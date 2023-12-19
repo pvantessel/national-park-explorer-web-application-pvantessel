@@ -1,0 +1,46 @@
+.notfound-container {
+    width: 100%;
+    min-height: 100vh;
+    color: #3E4047;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.notfound-container img {
+    width: 50%;
+    background-color: #3E4047;
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 8px 8px 8px grey;
+    border: 1px solid #FFFFFF;
+    margin: 150px auto 50px auto;
+}
+
+.notfound-content-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 8px 8px 8px grey;
+    border: 1px solid #3E4047;
+    margin: 50px auto 50px auto;
+    line-height: 1.5;
+    font-size: 24px;
+}
+
+.notfound-content-container p a,
+.notfound-content-container p a:visited {
+    text-decoration: none;
+    color: #40CD32;
+    font-weight: bold;
+}
+
+.notfound-content-container p a:hover {
+    color: #3E4047;
+}

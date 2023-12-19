@@ -1,0 +1,22 @@
+
+.styleButton {
+    border-radius: 4px;
+    padding: 8px 16px;
+    width: 125px;
+    background-color: #3CBE6B;
+    border: 1px solid white;
+    color: white;
+    font-size: 16px;
+    /*font-weight: bold;*/
+    outline: none;
+}
+
+.styleButton:hover {
+    cursor: pointer;
+    background-color: #FB7302;
+}
+
+.styleButton + .styleButton {
+    margin-left: 12px;
+}
+

@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useContext} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import './App.css';
+import {AuthContext} from './context/AuthContext.jsx';
+import Navigation from './components/navigation/Navigation.jsx';
+import HomePage from './pages/homepage/HomePage.jsx';
+import AccommodationOverview from "./pages/accommodationoverview/AccommodationOverview.jsx";
+import ActivitiesOverview from "./pages/activitiesoverview/ActivitiesOverview.jsx";
+import MultiMedia from "./pages/multimedia/MultiMedia.jsx";
+import ParkDetails from "./pages/parkdetails/ParkDetails.jsx";
+import ParkOverview from "./pages/parkoverview/ParkOverview.jsx";
+import Profile from './pages/profile/Profile.jsx';
+import SignIn from './pages/signin/SignIn.jsx';
+import SignUp from './pages/signup/SignUp.jsx';
+import NotFound from './pages/notfound/NotFound.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const { isAuth } = useContext(AuthContext);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <Navigation/>
+            <div className='main-content'>
+                <Routes>
+                    <Route path='/' element={<HomePage/>}/>
+                    <Route path='/accommodaties' element={<AccommodationOverview/>}/>
+                    <Route path='/activiteiten' element={<ActivitiesOverview/>}/>
+                    <Route path='/multimedia' element={<MultiMedia/>}/>
+                    <Route path="/parkdetails/:id" element={<ParkDetails/>}/>
+                    <Route path='/parken' element={<ParkOverview/>}/>
+                    <Route path='/profile' element={isAuth ? <Profile/> : <p>Gebruiker is nog niet ingelogd</p>}/>
+                    <Route path='/signin' element={isAuth ? <p>U bent al ingelogd</p> : <SignIn/>}/>
+                    <Route path='/signup' element={isAuth ? <p>Log eerst uit om u te kunnen registreren</p> : <SignUp/>}/>
+                    <Route path='*' element={<NotFound/>}/>
+                </Routes>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;
