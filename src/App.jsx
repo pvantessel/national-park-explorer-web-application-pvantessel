@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 import './App.css';
 import {AuthContext} from './context/AuthContext.jsx';
 import Navigation from './components/navigation/Navigation.jsx';
+import Footer from "./components/footer/Footer.jsx";
 import HomePage from './pages/homepage/HomePage.jsx';
 import AccommodationOverview from "./pages/accommodationoverview/AccommodationOverview.jsx";
 import ActivitiesOverview from "./pages/activitiesoverview/ActivitiesOverview.jsx";
@@ -34,6 +35,7 @@ function App() {
                     <Route path='*' element={<NotFound/>}/>
                 </Routes>
             </div>
+            <Footer/>
         </>
     );
 }

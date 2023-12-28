@@ -1,45 +1,57 @@
 
-/* HEADER */
+/* ALGEMEEN */
 
-header {
+.outer-container-homepage {
+    background-color: #EAE3D2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* HOMEPAGE HEADER */
+
+.homepage-header {
     background-image: url('../../assets/images/endless-road-homepage-header.jpg');
     background-size: cover;
     background-position: center;
     max-width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
     border-bottom: 1px solid #40CD32;
 }
 
-.header-content {
-    max-width: 1100px;
-    margin: 0 ;
+.homepage-header-content {
+    display: flex;
+    flex-direction: column;
     color: white;
 }
 
 /* MAIN */
 
-.homePageCard-outer-container {
+.homepage-cards-outer-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    background-color: #EAE3D2;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
-.homePageCard-inner-container {
+.homepage-cards-inner-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    flex-basis: 90%;
+    justify-content: flex-start;
+    flex-basis: 100vw;
     flex-wrap: wrap;
     flex-shrink: 1;
-    flex-grow: 0;
+    flex-grow: 1;
 }
 
-.classHomePageCard {
+.homepage-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,102 +63,165 @@ header {
     color: white;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    margin: 0 auto;
 }
 
-/* Media query for smartphones */
-@media screen and (max-width: 650px) {
-    .header-content {
-        padding: 100px 0 40px 0;
+a,
+a:visited,
+a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #40CD32;
+}
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+    .homepage-header-content {
+        padding: 3em 1em;
+        flex-basis: 80%;
+        margin: 1em;
     }
-    .header-content h1 {
-        margin: 10px;
+    .homepage-header-content h1 {
+        padding: 0.75em 0;
     }
-    .header-content h4 {
-        margin: 20px;
+    .homepage-header-content h4 {
+        padding: 0.75em 0;
     }
-    .homePageCard-inner-container {
-        margin: 25px 0;
-        gap: 10px;
+    .homepage-cards-inner-container {
+        padding: 2em 0.75em;
+        gap: 0.5em;
+        margin: 0.5em;
     }
-    .classHomePageCard {
+    .homepage-card {
         width: 300px;
-        height: 200px;
+        height: 225px;
+        margin: 0.75em;
     }
 }
 
-/* Media query for tablets */
-@media screen and (min-width: 651px) and (max-width: 1280px) {
-    .header-content {
-        padding: 150px 0 100px 0;
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .homepage-header-content {
+        padding: 5em 1em;
+        flex-basis: 70%;
+        margin: 1em;
     }
-    .header-content h1 {
-        margin: 15px;
+    .homepage-header-content h1 {
+        padding: 0.75em 0;
     }
-    .header-content h4 {
-        margin: 25px;
+    .homepage-header-content h4 {
+        padding: 0.75em 0;
     }
-    .homePageCard-inner-container {
-        margin: 50px 0;
-        gap: 20px;
+    .homepage-cards-inner-container {
+        padding: 2em 0.75em;
+        gap: 0.5em;
+        margin: 1em;
     }
-    .classHomePageCard {
-        width: 450px;
+    .homepage-card {
+        width: 280px;
+        height: 210px;
+        margin: 0.5em;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .homepage-header-content {
+        padding: 5em 1em;
+        flex-basis: 70%;
+        margin: 1em;
+    }
+    .homepage-header-content h1 {
+        padding: 0.75em 0;
+    }
+    .homepage-header-content h4 {
+        padding: 0.75em 0;
+    }
+    .homepage-cards-inner-container {
+        padding: 3em 1em;
+        gap: 2em;
+        margin: 1.5em;
+    }
+    .homepage-card {
+        width: 300px;
+        height: 225px;
+        margin: 0.75em;
+    }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .homepage-header-content {
+        padding: 5em 1em;
+        flex-basis: 70%;
+        margin: 1em;
+    }
+    .homepage-header-content h1 {
+        padding: 0.75em 0;
+    }
+    .homepage-header-content h4 {
+        padding: 0.75em 0;
+    }
+    .homepage-cards-inner-container {
+        padding: 3em 1em;
+        gap: 1.5em;
+        margin: 2em;
+    }
+    .homepage-card {
+        width: 400px;
         height: 300px;
+        margin: 1.5em;
     }
 }
 
-/* Media query for laptops and widescreen displays */
-@media screen and (min-width: 1281px) {
-    .header-content {
-        padding: 200px 0 150px 0;
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .homepage-header-content {
+        padding: 5em 1em;
+        flex-basis: 70%;
+        margin: 1em;
     }
-    .header-content h1 {
-        margin: 20px;
+    .homepage-header-content h1 {
+        padding: 1em 0;
     }
-    .header-content h4 {
-        margin: 30px;
+    .homepage-header-content h4 {
+        padding: 1em 0;
     }
-    .homePageCard-inner-container {
-        margin: 75px 0;
-        gap: 30px;
+    .homepage-cards-inner-container {
+        padding: 1.5em;
+        gap: 4em;
+        margin: 3em;
     }
-    .classHomePageCard {
+    .homepage-card {
+        width: 500px;
+        height: 375px;
+        margin: 2em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .homepage-header-content {
+        padding: 10em 1em;
+        flex-basis: 50%;
+        margin: 1em;
+    }
+    .homepage-header-content h1 {
+        padding: 1em 0;
+    }
+    .homepage-header-content h4 {
+        padding: 1.5em 0;
+    }
+    .homepage-cards-inner-container {
+        padding: 2em;
+        gap: 8em;
+        margin: 4em;
+    }
+    .homepage-card {
         width: 600px;
-        height: 400px;
+        height: 450px;
+        margin: 2em;
     }
-}
-
-
-
-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding:0;
-    border: 2px solid red;
-}
-
-.copyright-text {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    border: 2px solid blue;
-}
-
-.social-media-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap:30px;
-    padding:0 20px;
-    border: 2px solid green;
-}
-
-.style-icon {
-    width: 40px;
-    height: 40px;
 }

@@ -1,0 +1,116 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    background-color: black;
+    color: #FFFFFF;
+    border-top: 1px solid #3CBE6B;
+}
+
+.copyright-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+    .copyright-text {
+        padding: 1.25em;
+    }
+    .social-media-icons {
+        gap: 1.25em;
+        padding: 1.25em;
+    }
+    .style-icon {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .copyright-text {
+        padding: 1.5em;
+    }
+    .social-media-icons {
+        gap: 1.5em;
+        padding: 1.5em;
+    }
+    .style-icon {
+        width: 1.75em;
+        height: 1.75em;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .copyright-text {
+        padding: 1.75em;
+    }
+    .social-media-icons {
+        gap: 1.75em;
+        padding: 1.75em;
+    }
+    .style-icon {
+        width: 2em;
+        height: 2em;
+    }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .copyright-text {
+        padding: 2em;
+    }
+    .social-media-icons {
+        gap: 2em;
+        padding: 2em;
+    }
+    .style-icon {
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .copyright-text {
+        padding: 2em;
+    }
+    .social-media-icons {
+        gap: 2em;
+        padding: 2em;
+    }
+    .style-icon {
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .copyright-text {
+        padding: 2.5em;
+    }
+    .social-media-icons {
+        gap: 2em;
+        padding: 2.5em;
+    }
+    .style-icon {
+        width: 3em;
+        height: 3em;
+    }
+}

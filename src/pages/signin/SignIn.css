@@ -1,0 +1,235 @@
+
+.outer-container-signin {
+    background-color: #EAE3D2;
+    min-height: 100vh;
+}
+
+.signin-background {
+    background-image: url('../../assets/images/background-image-signin.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+}
+
+.signin-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.form-style-signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px rgba(255, 255, 255, 0.5);
+    width: 60%;
+    border: 2px solid #FFFFFF;
+}
+
+.form-entry-style-signin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-label-class-style-signin {
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.form-input-class-style-signin {
+    border-radius: 5px;
+}
+
+.form-input-class-style-signin:hover{
+    background-color: #FB7302;
+    color: #FFFFFF;
+}
+
+.form-button-signin {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.style-link-signin a,
+.style-link-signin a:visited {
+    text-decoration: none;
+    color: #40CD32;
+    font-weight: bold;
+}
+
+.style-link-signin a:hover {
+    color: #FB7302;
+}
+
+
+/* Extra Small Devices (phones, less than 576px) */
+@media screen and (max-width: 576px) {
+    .signin-inner-container h1 {
+        margin: 0;
+    }
+    .signin-inner-container {
+        height: 90vh;
+    }
+    .form-style-signin {
+        padding: 0 16px;
+        width: 70%;
+    }
+    .form-header-signin {
+        margin: 20px 0 30px 0;
+    }
+    .form-entry-style-signin {
+        margin-bottom: 10px;
+        gap: 5px;
+    }
+    .form-label-class-style-signin {
+        font-size: 10px;
+        padding: 2px;
+        width: 40%;
+    }
+    .form-input-class-style-signin {
+        font-size: 10px;
+        padding: 2px;
+        width: 60%;
+    }
+    .form-button-signin {
+        margin: 20px 0;
+    }
+}
+
+/* Small Devices (phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .signin-inner-container h1 {
+        margin: 0;
+    }
+    .signin-inner-container {
+        height: 120vh;
+    }
+    .form-style-signin {
+        padding: 0 18px;
+        width: 70%;
+    }
+    .form-header-signin {
+        margin: 20px 0;
+    }
+    .form-entry-style-signin {
+        margin-bottom: 10px;
+        gap: 10px;
+    }
+    .form-label-class-style-signin {
+        font-size: 12px;
+        padding: 2px;
+        width: 40%;
+    }
+    .form-input-class-style-signin {
+        font-size: 12px;
+        padding: 2px;
+        width: 60%;
+    }
+    .form-button-signin {
+        margin: 20px 0;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .signin-inner-container h1 {
+        margin: 0;
+    }
+    .signup-inner-container {
+        height: 120vh;
+    }
+    .form-style-signin {
+        padding: 0 24px;
+        width: 70%;
+    }
+    .form-header-signin {
+        margin: 20px 0;
+    }
+    .form-entry-style-signin {
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+    .form-label-class-style-signin {
+        font-size: 14px;
+        padding: 3px;
+        width: 40%;
+    }
+    .form-input-class-style-signin {
+        font-size: 14px;
+        padding: 3px;
+        width: 60%;
+    }
+    .form-button-signin {
+        margin: 20px 0;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .signin-inner-container h1 {
+        margin: 0;
+    }
+    .form-style-signin {
+        padding: 0 28px;
+    }
+    .form-header-signin {
+        margin: 20px 0 30px 0;
+    }
+    .form-entry-style-signin {
+        margin-bottom: 25px;
+        gap: 20px;
+    }
+    .form-label-class-style-signin {
+        font-size: 18px;
+        padding: 5px;
+        width: 30%;
+    }
+    .form-input-class-style-signin {
+        font-size: 18px;
+        padding: 5px;
+        width: 70%;
+    }
+    .form-button-signin {
+        margin: 40px 0 25px 0;
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    .signin-inner-container h1 {
+        margin: 0;
+    }
+    .form-style-signin {
+        padding: 0 32px;
+    }
+    .form-header-signin {
+        margin: 40px 0;
+    }
+    .form-entry-style-signin {
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+    .form-label-class-style-signin {
+        font-size: 20px;
+        padding: 5px;
+        width: 30%;
+    }
+    .form-input-class-style-signin {
+        font-size: 20px;
+        padding: 5px;
+        width: 70%;
+    }
+    .form-button-signin {
+        margin: 50px 0 30px 0;
+    }
+}

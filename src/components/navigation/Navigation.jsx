@@ -19,6 +19,8 @@ function Navigation() {
         setMenuOpen(false);
     };
 
+    console.log(`isAuth gevuld met: ${isAuth}`);
+
     return (
         <nav>
             <Link to="/">
@@ -48,7 +50,7 @@ function Navigation() {
                     </div>
                     :
                     <div className='logout-name-div'>
-                        <p className='displayEmail'>{user}</p>
+                        <p className='displayEmail'>{user.email}</p>
                         <Button
                             buttonType='button'
                             clickHandler={logout}

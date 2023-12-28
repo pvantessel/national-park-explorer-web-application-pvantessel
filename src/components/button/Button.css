@@ -13,40 +13,78 @@
     background-color: #FB7302;
 }
 
+.styleButton:disabled {
+    background-color: darkgrey;
+}
+
 .styleButton + .styleButton {
     margin-left: 12px;
 }
 
-/* Media query for smartphones */
-@media screen and (max-width: 650px) {
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
     .styleButton {
-        width: 80px; /* Adjust the logo size for smaller screens */
-        font-size: 10px;
+        width: 75px;
+        font-size: 0.5em;
     }
     .styleButton + .styleButton {
-        margin-left: 6px;
+        margin-left: 0.5em;
     }
 }
 
-/* Media query for tablets */
-@media screen and (min-width: 651px) and (max-width: 1280px) {
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
     .styleButton {
-        width: 100px; /* Adjust the logo size for smaller screens */
-        font-size: 12px;
+        width: 100px;
+        font-size: 0.75em;
     }
     .styleButton + .styleButton {
-        margin-left: 8px;
+        margin-left: 0.75em;
     }
 }
 
-/* Media query for laptops and widescreen displays */
-@media screen and (min-width: 1281px) {
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
     .styleButton {
-        width: 125px; /* Adjust the logo size for smaller screens */
-        font-size: 16px;
+        width: 125px;
+        font-size: 1em;
     }
     .styleButton + .styleButton {
-        margin-left: 12px;
+        margin-left: 1em;
     }
 }
 
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .styleButton {
+        width: 125px;
+        font-size: 1em;
+    }
+    .styleButton + .styleButton {
+        margin-left: 1em;
+    }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .styleButton {
+        width: 150px;
+        font-size: 1.25em;
+    }
+    .styleButton + .styleButton {
+        margin-left: 1em;
+    }
+}
+
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .styleButton {
+        width: 150px;
+        font-size: 1.25em;
+    }
+    .styleButton + .styleButton {
+        margin-left: 1em;
+    }
+}

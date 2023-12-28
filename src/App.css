@@ -1,32 +1,42 @@
 
-a,
-a:visited,
-a:active {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #40CD32;
-}
-
-/* Media query for smartphones */
-@media screen and (max-width: 650px) {
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
   .main-content {
-    padding-top: 40px;
+    padding-top: 3em;
   }
 }
 
-/* Media query for tablets */
-@media screen and (min-width: 651px) and (max-width: 1280px) {
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
   .main-content {
-    padding-top: 80px;
+    padding-top: 5em;
   }
 }
 
-/* Media query for laptops and widescreen displays */
-@media screen and (min-width: 1281px) {
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .main-content {
-    padding-top: 120px;
+    padding-top: 5em;
+  }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-content {
+    padding-top: 5em;
+  }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  .main-content {
+    padding-top: 7em;
+  }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+  .main-content {
+    padding-top: 7em;
   }
 }

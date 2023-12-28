@@ -1,9 +1,9 @@
-import React from 'react';
 
-function FormInputField({ labelName, labelText, inputType, inputName, inputValue, setInput, required, placeholder }) {
+// eslint-disable-next-line react/prop-types
+function FormInputField({labelName, labelClass, labelText, inputType, inputName, inputValue, setInput, required, placeholder, inputClass }) {
     return (
-        <div>
-            <label htmlFor={labelName}>{labelText}</label>
+        <>
+            <label htmlFor={labelName} className={labelClass}>{labelText}</label>
             <input
                 type={inputType}
                 id={inputName}
@@ -12,8 +12,9 @@ function FormInputField({ labelName, labelText, inputType, inputName, inputValue
                 required={required}
                 placeholder={placeholder}
                 onChange={(e) => setInput(e.target.value)}
+                className={inputClass}
             />
-        </div>
+        </>
     );
 }
 

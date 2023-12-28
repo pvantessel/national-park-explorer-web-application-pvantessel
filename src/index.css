@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Neucha&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -19,68 +18,139 @@ h5 {
   font-family: 'Roboto', 'Times New Roman', cursive;
 }
 
-/* Media query for smartphones */
-@media screen and (max-width: 650px) {
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
   h1 {
-    font-size: 28px;
+    font-size: 1.5em;
   }
   h2 {
-    font-size: 22px;
+    font-size: 1.25em;
   }
   h3 {
-    font-size: 18px;
+    font-size: 1em;
   }
   h4 {
-    font-size: 16px;
+    font-size: 0.75em;
   }
   h5 {
-    font-size: 15px;
+    font-size: 0.75em;
   }
   p {
-    font-size: 10px;
+    font-size: 0.5em;
   }
 }
 
-/* Media query for tablets */
-@media screen and (min-width: 651px) and (max-width: 1280px) {
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
   h1 {
-    font-size: 38px;
+    font-size: 1.75em;
   }
   h2 {
-    font-size: 30px;
+    font-size: 1.5em;
   }
   h3 {
-    font-size: 24px;
+    font-size: 1.25em;
   }
   h4 {
-    font-size: 20px;
+    font-size: 1em;
   }
   h5 {
-    font-size: 18px;
+    font-size: 1em;
   }
   p {
-    font-size: 12px;
+    font-size: 0.75em;
   }
 }
 
-/* Media query for laptops and widescreen displays */
-@media screen and (min-width: 1281px) {
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
   h1 {
-    font-size: 48px;
+    font-size: 2.25em;
   }
   h2 {
-    font-size: 38px;
+    font-size: 1.75em;
   }
   h3 {
-    font-size: 30px;
+    font-size: 1.5em;
   }
   h4 {
-    font-size: 24px;
+    font-size: 1.25em;
   }
   h5 {
-    font-size: 20px;
+    font-size: 1em;
   }
   p {
-    font-size: 18px;
+    font-size: 0.75em;
   }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2.25em;
+  }
+  h3 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.5em;
+  }
+  h5 {
+    font-size: 1.25em;
+  }
+  p {
+    font-size: 1em;
+  }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 2.5em;
+    }
+    h3 {
+      font-size: 2em;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+    h5 {
+      font-size: 1.25em;
+    }
+    p {
+      font-size: 1em;
+    }
+}
+
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 3.5em;
+  }
+  h3 {
+    font-size: 3em;
+  }
+  h4 {
+    font-size: 2em;
+  }
+  h5 {
+    font-size: 1.5em;
+  }
+  p {
+    font-size: 1.25em;
+  }
+}
+
+.error {
+  color: yellow;
 }
