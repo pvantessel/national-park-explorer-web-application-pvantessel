@@ -1,242 +1,349 @@
 
-.outer-container-signup {
-    background-color: #EAE3D2;
-    min-height: 100vh;
-}
+/* ALGEMEEN */
 
-.signup-background {
+.signup-outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 100vh;
     background-image: url('../../assets/images/background-image-signup.jpg');
     background-size: cover;
     background-position: center;
     max-width: 100%;
 }
 
-.signup-inner-container {
+/* SIGNUP HEADER */
+
+.signup-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
-    color: #FFFFFF;
-    max-width: 100%;
-    height: 100vh;
 }
 
-.form-style-signup {
+.signup-header-content {
+    color: #FFFFFF;
+}
+
+/* SIGNUP FORM */
+
+.signup-form-style {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgba(0,0,0,0.4);
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    box-shadow: 10px 10px 8px rgba(255, 255, 255, 0.5);
-    width: 70%;
+    box-shadow: 12px 12px 12px rgba(255, 255, 255, 0.5);
     border: 2px solid #FFFFFF;
 }
 
-.form-entry-style-signup {
+.signup-form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.signup-form-entry-style {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.form-label-class-style-signup {
+.signup-form-label-class-style {
     color: #FFFFFF;
     text-align: left;
 }
 
-.form-input-class-style-signup {
+.signup-form-input-class-style {
     border-radius: 5px;
 }
 
-.form-input-class-style-signup:hover{
+.signup-form-input-class-style:hover {
     background-color: #FB7302;
     color: #FFFFFF;
 }
 
-.form-button-signup {
+.signup-form-button {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.style-link-signup a,
-.style-link-signup a:visited {
-    text-decoration: none;
-    color: #40CD32;
-    font-weight: bold;
+/* SIGNUP REMARK */
+
+.signup-remark {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
 }
 
-.style-link-signup a:hover {
+.signup-remark-content {
+    color: #FFFFFF;
+}
+
+.signup-style-link a,
+.signup-style-link a:visited {
+    text-decoration: none;
+    color: #40CD32;
+}
+
+.signup-style-link a:hover {
     color: #FB7302;
 }
 
-/* Extra Small Devices (phones, less than 576px) */
+/* SIGNUP MEDIA QUERIES */
+
+/* Telefoon in portrait mode */
 @media screen and (max-width: 576px) {
-    .signup-inner-container h1 {
+    .signup-header {
+        margin: 4em 0;
+    }
+    .signup-header-content {
+        margin: 0.5em;
+    }
+    .signup-form-style {
+        width: 95%;
         margin: 0;
+        padding: 1.5em 0;
     }
-    .signup-inner-container {
-        height: 90vh;
+    .signup-form-header {
+        margin-bottom: 1.5em;
     }
-    .form-style-signup {
-        padding: 0 16px;
-        min-height: 35%;
-        width: 80%;
+    .signup-form-entry-style {
+        margin-bottom: 0.75em;
+        gap: 0.5em;
     }
-    .form-header-signup {
-        margin: 20px 0 30px 0;
+    .signup-form-label-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
+        width: 30%;
     }
-    .form-entry-style-signup {
-        margin-bottom: 10px;
-        gap: 5px;
+    .signup-form-input-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
+        width: 70%;
     }
-    .form-label-class-style-signup {
-        font-size: 10px;
-        padding: 2px;
-        width: 40%;
+    .signup-form-button {
+        margin: 1.5em 0 0.75em 0;
     }
-    .form-input-class-style-signup {
-        font-size: 10px;
-        padding: 2px;
-        width: 60%;
+    .signup-remark {
+        margin: 5em 0;
     }
-    .form-button-signup {
-        margin: 30px 0;
+    .signup-remark-content {
+        margin: 0.5em;
     }
 }
 
-/* Small Devices (phones, 576px and up) */
+/* Telefoon in landscape mode */
 @media screen and (min-width: 576px) and (max-width: 767px) {
-    .signup-inner-container h1 {
+    .signup-header {
+        margin: 3em 0;
+    }
+    .signup-header-content {
+        margin: 1em;
+    }
+    .signup-form-style {
+        width: 85%;
         margin: 0;
+        padding: 2em 0;
     }
-    .signup-inner-container {
-        height: 120vh;
+    .signup-form-header {
+        margin-bottom: 2em;
     }
-    .form-style-signup {
-        padding: 0 18px;
-        min-height: 40%;
-        width: 80%;
+    .signup-form-entry-style {
+        margin-bottom: 1em;
+        gap: 1em;
     }
-    .form-header-signup {
-        margin: 15px 0;
+    .signup-form-label-class-style {
+        font-size: 1em;
+        padding: 0.1em;
+        width: 30%;
     }
-    .form-entry-style-signup {
-        margin-bottom: 10px;
-        gap: 10px;
+    .signup-form-input-class-style {
+        font-size: 1em;
+        padding: 0.1em;
+        width: 70%;
     }
-    .form-label-class-style-signup {
-        font-size: 12px;
-        padding: 2px;
-        width: 40%;
+    .signup-form-button {
+        margin: 2em 0 1em 0;
     }
-    .form-input-class-style-signup {
-        font-size: 12px;
-        padding: 2px;
-        width: 60%;
+    .signup-remark {
+        margin: 4em 0;
     }
-    .form-button-signup {
-        margin: 20px 0;
+    .signup-remark-content {
+        margin: 1em;
     }
 }
 
-/* Medium Devices (tablets, 768px and up) */
+/* Tablets */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    .signup-inner-container h1 {
+    .signup-header {
+        margin: 6em 0 4em 0;
+    }
+    .signup-header-content {
+        margin: 1em;
+    }
+    .signup-form-style {
+        width: 85%;
         margin: 0;
+        padding: 3em 0;
     }
-    .signup-inner-container {
-        height: 120vh;
+    .signup-form-header {
+        margin-bottom: 2.25em;
     }
-    .form-style-signup {
-        padding: 0 24px;
-        min-height: 25%;
-        width: 75%;
+    .signup-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.25em;
     }
-    .form-header-signup {
-        margin: 40px 0;
+    .signup-form-label-class-style {
+        font-size: 1em;
+        padding: 0.2em;
+        width: 30%;
     }
-    .form-entry-style-signup {
-        margin-bottom: 20px;
-        gap: 15px;
+    .signup-form-input-class-style {
+        font-size: 1em;
+        padding: 0.2em;
+        width: 70%;
     }
-    .form-label-class-style-signup {
-        font-size: 14px;
-        padding: 3px;
-        width: 40%;
+    .signup-form-button {
+        margin: 2.5em 0 1em 0;
     }
-    .form-input-class-style-signup {
-        font-size: 14px;
-        padding: 3px;
-        width: 60%;
+    .signup-remark {
+        margin: 6em 0;
     }
-    .form-button-signup {
-        margin: 30px 0;
+    .signup-remark-content {
+        margin: 1em;
     }
 }
 
-/* Large Devices (desktops, 992px and up) */
+/* Grote tablets en kleine computer schermen */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-    .signup-inner-container h1 {
+    .signup-header {
+        margin: 6em 0 5em 0;
+    }
+    .signup-header-content {
+        margin: 1em;
+    }
+    .signup-form-style {
+        width: 85%;
         margin: 0;
+        padding: 3em 0;
     }
-    .signup-inner-container {
-        height: 90vh;
+    .signup-form-header {
+        margin-bottom: 2.5em;
     }
-    .form-style-signup {
-        padding: 0 28px;
-        min-height: 40%;
+    .signup-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.5em;
     }
-    .form-header-signup {
-        margin: 30px 0 40px 0;
-    }
-    .form-entry-style-signup {
-        margin-bottom: 25px;
-        gap: 20px;
-    }
-    .form-label-class-style-signup {
-        font-size: 18px;
-        padding: 5px;
+    .signup-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 30%;
     }
-    .form-input-class-style-signup {
-        font-size: 18px;
-        padding: 5px;
+    .signup-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 70%;
     }
-    .form-button-signup {
-        margin: 40px 0;
+    .signup-form-button {
+        margin: 2.5em 0 1.5em 0;
+    }
+    .signup-remark {
+        margin: 6em 0;
+    }
+    .signup-remark-content {
+        margin: 1em;
     }
 }
 
-/* Extra Large Devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1200px) {
-    .signup-inner-container h1 {
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .signup-header {
+        margin: 4em 0;
+    }
+    .signup-header-content {
+        margin: 1em;
+    }
+    .signup-form-style {
+        width: 70%;
         margin: 0;
+        padding: 4em 0 3em 0;
     }
-    .form-style-signup {
-        padding: 0 32px;
-        min-height: 40%;
+    .signup-form-header {
+        margin-bottom: 3em;
     }
-    .form-header-signup {
-        margin: 40px 0;
+    .signup-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
     }
-    .form-entry-style-signup {
-        margin-bottom: 30px;
-        gap: 20px;
-    }
-    .form-label-class-style-signup {
-        font-size: 20px;
-        padding: 5px;
+    .signup-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 30%;
     }
-    .form-input-class-style-signup {
-        font-size: 20px;
-        padding: 5px;
+    .signup-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 70%;
     }
-    .form-button-signup {
-        margin: 50px 0;
+    .signup-form-button {
+        margin: 3em 0 2em 0;
+    }
+    .signup-remark {
+        margin: 6em 0;
+    }
+    .signup-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .signup-header {
+        margin: 5em 0;
+    }
+    .signup-header-content {
+        margin: 1em;
+    }
+    .signup-form-style {
+        width: 40%;
+        margin: 0;
+        padding: 5em 0 3em 0;
+    }
+    .signup-form-header {
+        margin-bottom: 3em;
+    }
+    .signup-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
+    }
+    .signup-form-label-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 30%;
+    }
+    .signup-form-input-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 70%;
+    }
+    .signup-form-button {
+        margin: 3em 0 2em 0;
+    }
+    .signup-remark {
+        margin: 5em 0;
+    }
+    .signup-remark-content {
+        margin: 1em;
     }
 }

@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
 function HomePageCard({ backgroundImg, title, linkUrl, className }) {

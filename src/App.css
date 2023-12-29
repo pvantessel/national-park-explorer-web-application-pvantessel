@@ -37,6 +37,6 @@
 /* Extra Large computer schermen */
 @media screen and (min-width: 1600px) {
   .main-content {
-    padding-top: 7em;
+    padding-top: 10em;
   }
 }

@@ -81,6 +81,12 @@ nav {
     transition: visibility 0s, opacity 0.5s linear;
 }
 
+.menu-items a,
+.menu-items a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 .menu-items a:hover {
     color: black;
 }
@@ -89,7 +95,6 @@ nav {
     visibility: visible;
     opacity: 1;
 }
-
 
 /* Telefoon in portrait mode */
 @media screen and (max-width: 576px) {

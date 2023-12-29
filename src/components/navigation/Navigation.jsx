@@ -2,7 +2,7 @@ import './Navigation.css';
 import {useContext, useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContext.jsx';
-import logo from '../../assets/images/National Park Explorer.png';
+import logo from '../../assets/images/NationalParkExplorer.png';
 import Button from '../button/Button.jsx';
 
 function Navigation() {

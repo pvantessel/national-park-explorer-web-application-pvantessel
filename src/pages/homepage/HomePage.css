@@ -18,6 +18,7 @@
     background-size: cover;
     background-position: center;
     max-width: 100%;
+    min-height: 500px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,7 +29,7 @@
 .homepage-header-content {
     display: flex;
     flex-direction: column;
-    color: white;
+    color: #FFFFFF;
 }
 
 /* MAIN */
@@ -61,19 +62,20 @@
     flex-shrink: 1;
     flex-grow: 0;
     color: white;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
+    border: 1px solid #40CD32;
 }
 
-a,
-a:visited,
-a:active {
+.homepage-card a,
+.homepage-card a:visited,
+.homepage-card a:active {
     color: #FFFFFF;
     text-decoration: none;
 }
 
-a:hover {
-    color: #40CD32;
+.homepage-card a:hover {
+    color: #FB7302;
 }
 
 /* Telefoon in portrait mode */
@@ -204,7 +206,7 @@ a:hover {
 /* Extra Large computer schermen */
 @media screen and (min-width: 1600px) {
     .homepage-header-content {
-        padding: 10em 1em;
+        padding: 8em 1em;
         flex-basis: 50%;
         margin: 1em;
     }

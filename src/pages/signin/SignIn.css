@@ -1,235 +1,349 @@
 
-.outer-container-signin {
-    background-color: #EAE3D2;
-    min-height: 100vh;
-}
+/* ALGEMEEN */
 
-.signin-background {
+.signin-outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 100vh;
     background-image: url('../../assets/images/background-image-signin.jpg');
     background-size: cover;
     background-position: center;
     max-width: 100%;
 }
 
-.signin-inner-container {
+/* SIGNIN HEADER */
+
+.signin-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
-    color: #FFFFFF;
-    max-width: 100%;
-    height: 100vh;
 }
 
-.form-style-signin {
+.signin-header-content {
+    color: #FFFFFF;
+}
+
+/* SIGNIN FORM */
+
+.signin-form-style {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgba(0,0,0,0.4);
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    box-shadow: 10px 10px 8px rgba(255, 255, 255, 0.5);
-    width: 60%;
+    box-shadow: 12px 12px 12px rgba(255, 255, 255, 0.5);
     border: 2px solid #FFFFFF;
 }
 
-.form-entry-style-signin {
+.signin-form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.signin-form-entry-style {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.form-label-class-style-signin {
+.signin-form-label-class-style {
     color: #FFFFFF;
     text-align: left;
 }
 
-.form-input-class-style-signin {
+.signin-form-input-class-style {
     border-radius: 5px;
 }
 
-.form-input-class-style-signin:hover{
+.signin-form-input-class-style:hover {
     background-color: #FB7302;
     color: #FFFFFF;
 }
 
-.form-button-signin {
+.signin-form-button {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.style-link-signin a,
-.style-link-signin a:visited {
-    text-decoration: none;
-    color: #40CD32;
-    font-weight: bold;
+/* SIGNIN REMARK */
+
+.signin-remark {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
 }
 
-.style-link-signin a:hover {
+.signin-remark-content {
+    color: #FFFFFF;
+}
+
+.signin-style-link a,
+.signin-style-link a:visited {
+    text-decoration: none;
+    color: #40CD32;
+}
+
+.signin-style-link a:hover {
     color: #FB7302;
 }
 
+/* SIGNIN MEDIA QUERIES */
 
-/* Extra Small Devices (phones, less than 576px) */
+/* Telefoon in portrait mode */
 @media screen and (max-width: 576px) {
-    .signin-inner-container h1 {
+    .signin-header {
+        margin: 4em 0;
+    }
+    .signin-header-content {
+        margin: 0.5em;
+    }
+    .signin-form-style {
+        width: 90%;
         margin: 0;
+        padding: 1.5em 0;
     }
-    .signin-inner-container {
-        height: 90vh;
+    .signin-form-header {
+        margin-bottom: 1.5em;
     }
-    .form-style-signin {
-        padding: 0 16px;
+    .signin-form-entry-style {
+        margin-bottom: 0.75em;
+        gap: 0.5em;
+    }
+    .signin-form-label-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
+        width: 30%;
+    }
+    .signin-form-input-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
         width: 70%;
     }
-    .form-header-signin {
-        margin: 20px 0 30px 0;
+    .signin-form-button {
+        margin: 1.5em 0 0.75em 0;
     }
-    .form-entry-style-signin {
-        margin-bottom: 10px;
-        gap: 5px;
+    .signin-remark {
+        margin: 5em 0;
     }
-    .form-label-class-style-signin {
-        font-size: 10px;
-        padding: 2px;
-        width: 40%;
-    }
-    .form-input-class-style-signin {
-        font-size: 10px;
-        padding: 2px;
-        width: 60%;
-    }
-    .form-button-signin {
-        margin: 20px 0;
+    .signin-remark-content {
+        margin: 0.5em;
     }
 }
 
-/* Small Devices (phones, 576px and up) */
+/* Telefoon in landscape mode */
 @media screen and (min-width: 576px) and (max-width: 767px) {
-    .signin-inner-container h1 {
+    .signin-header {
+        margin: 3em 0;
+    }
+    .signin-header-content {
+        margin: 1em;
+    }
+    .signin-form-style {
+        width: 75%;
         margin: 0;
+        padding: 2em 0;
     }
-    .signin-inner-container {
-        height: 120vh;
+    .signin-form-header {
+        margin-bottom: 2em;
     }
-    .form-style-signin {
-        padding: 0 18px;
+    .signin-form-entry-style {
+        margin-bottom: 1em;
+        gap: 1em;
+    }
+    .signin-form-label-class-style {
+        font-size: 1em;
+        padding: 0.1em;
+        width: 30%;
+    }
+    .signin-form-input-class-style {
+        font-size: 1em;
+        padding: 0.1em;
         width: 70%;
     }
-    .form-header-signin {
-        margin: 20px 0;
+    .signin-form-button {
+        margin: 2em 0 1em 0;
     }
-    .form-entry-style-signin {
-        margin-bottom: 10px;
-        gap: 10px;
+    .signin-remark {
+        margin: 4em 0;
     }
-    .form-label-class-style-signin {
-        font-size: 12px;
-        padding: 2px;
-        width: 40%;
-    }
-    .form-input-class-style-signin {
-        font-size: 12px;
-        padding: 2px;
-        width: 60%;
-    }
-    .form-button-signin {
-        margin: 20px 0;
+    .signin-remark-content {
+        margin: 1em;
     }
 }
 
-/* Medium Devices (tablets, 768px and up) */
+/* Tablets */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    .signin-inner-container h1 {
+    .signin-header {
+        margin: 7em 0 5em 0;
+    }
+    .signin-header-content {
+        margin: 1em;
+    }
+    .signin-form-style {
+        width: 75%;
         margin: 0;
+        padding: 3em 0;
     }
-    .signup-inner-container {
-        height: 120vh;
+    .signin-form-header {
+        margin-bottom: 2.25em;
     }
-    .form-style-signin {
-        padding: 0 24px;
+    .signin-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.25em;
+    }
+    .signin-form-label-class-style {
+        font-size: 1em;
+        padding: 0.2em;
+        width: 30%;
+    }
+    .signin-form-input-class-style {
+        font-size: 1em;
+        padding: 0.2em;
         width: 70%;
     }
-    .form-header-signin {
-        margin: 20px 0;
+    .signin-form-button {
+        margin: 2.5em 0 1em 0;
     }
-    .form-entry-style-signin {
-        margin-bottom: 15px;
-        gap: 15px;
+    .signin-remark {
+        margin: 8em 0;
     }
-    .form-label-class-style-signin {
-        font-size: 14px;
-        padding: 3px;
-        width: 40%;
-    }
-    .form-input-class-style-signin {
-        font-size: 14px;
-        padding: 3px;
-        width: 60%;
-    }
-    .form-button-signin {
-        margin: 20px 0;
+    .signin-remark-content {
+        margin: 1em;
     }
 }
 
-/* Large Devices (desktops, 992px and up) */
+/* Grote tablets en kleine computer schermen */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-    .signin-inner-container h1 {
+    .signin-header {
+        margin: 7em 0 6em 0;
+    }
+    .signin-header-content {
+        margin: 1em;
+    }
+    .signin-form-style {
+        width: 70%;
         margin: 0;
+        padding: 3em 0;
     }
-    .form-style-signin {
-        padding: 0 28px;
+    .signin-form-header {
+        margin-bottom: 2.5em;
     }
-    .form-header-signin {
-        margin: 20px 0 30px 0;
+    .signin-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.5em;
     }
-    .form-entry-style-signin {
-        margin-bottom: 25px;
-        gap: 20px;
-    }
-    .form-label-class-style-signin {
-        font-size: 18px;
-        padding: 5px;
+    .signin-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 30%;
     }
-    .form-input-class-style-signin {
-        font-size: 18px;
-        padding: 5px;
+    .signin-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 70%;
     }
-    .form-button-signin {
-        margin: 40px 0 25px 0;
+    .signin-form-button {
+        margin: 2.5em 0 1.5em 0;
+    }
+    .signin-remark {
+        margin: 10em 0;
+    }
+    .signin-remark-content {
+        margin: 1em;
     }
 }
 
-/* Extra Large Devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1200px) {
-    .signin-inner-container h1 {
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .signin-header {
+        margin: 4em 0;
+    }
+    .signin-header-content {
+        margin: 1em;
+    }
+    .signin-form-style {
+        width: 60%;
         margin: 0;
+        padding: 3em 0 2em 0;
     }
-    .form-style-signin {
-        padding: 0 32px;
+    .signin-form-header {
+        margin-bottom: 2em;
     }
-    .form-header-signin {
-        margin: 40px 0;
+    .signin-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
     }
-    .form-entry-style-signin {
-        margin-bottom: 30px;
-        gap: 20px;
-    }
-    .form-label-class-style-signin {
-        font-size: 20px;
-        padding: 5px;
+    .signin-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 30%;
     }
-    .form-input-class-style-signin {
-        font-size: 20px;
-        padding: 5px;
+    .signin-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
         width: 70%;
     }
-    .form-button-signin {
-        margin: 50px 0 30px 0;
+    .signin-form-button {
+        margin: 3em 0 2em 0;
+    }
+    .signin-remark {
+        margin: 6em 0;
+    }
+    .signin-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .signin-header {
+        margin: 7em 0;
+    }
+    .signin-header-content {
+        margin: 1em;
+    }
+    .signin-form-style {
+        width: 35%;
+        margin: 0;
+        padding: 4em 0 3em 0;
+    }
+    .signin-form-header {
+        margin-bottom: 3em;
+    }
+    .signin-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
+    }
+    .signin-form-label-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 30%;
+    }
+    .signin-form-input-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 70%;
+    }
+    .signin-form-button {
+        margin: 3em 0 2em 0;
+    }
+    .signin-remark {
+        margin: 10em 0;
+    }
+    .signin-remark-content {
+        margin: 1em;
     }
 }

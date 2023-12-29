@@ -35,20 +35,23 @@ function SignIn() {
     }
 
     return (
-        <main className='outer-container-signin signin-background'>
-            <section className='signin-inner-container'>
-                <h1>Inloggen</h1>
+        <main className='signin-outer-container'>
+                <section className='signin-header'>
+                    <div className='signin-header-content'>
+                        <h1>Inloggen</h1>
+                    </div>
+                </section>
 
-                <article className='form-style-signin'>
+                <section className='signin-form-style'>
                     <form onSubmit={handleSubmit}>
-                        <div className='form-header-signin'>
+                        <div className='signin-form-header'>
                             <h4>U kunt hieronder inloggen met uw username en password.</h4>
                         </div>
 
-                        <div className='form-entry-style-signin'>
+                        <div className='signin-form-entry-style'>
                             <FormInputField
-                                labelClass='form-label-class-style-signin'
-                                inputClass='form-input-class-style-signin'
+                                labelClass='signin-form-label-class-style'
+                                inputClass='signin-form-input-class-style'
                                 labelName='inputUsername'
                                 labelText='Username'
                                 inputType='text'
@@ -60,10 +63,10 @@ function SignIn() {
                             />
                         </div>
 
-                        <div className='form-entry-style-signin'>
+                        <div className='signin-form-entry-style'>
                             <FormInputField
-                                labelClass='form-label-class-style-signin'
-                                inputClass='form-input-class-style-signin'
+                                labelClass='signin-form-label-class-style'
+                                inputClass='signin-form-input-class-style'
                                 labelName="inputPassword"
                                 labelText="Password"
                                 inputType="password"
@@ -77,7 +80,7 @@ function SignIn() {
 
                         {error && <p className="error">De combinatie van username en wachtwoord is onjuist !</p>}
 
-                        <div className='form-button-signin'>
+                        <div className='signin-form-button'>
                             <Button
                                 buttonType='submit'
                                 buttonClass='styleButton'
@@ -87,11 +90,14 @@ function SignIn() {
                             </Button>
                         </div>
                     </form>
-                </article>
+                </section>
 
-                <article>
-                    <h4 className='style-link-signin'>Heeft u nog geen account? Dan kunt u zich <Link to="/signup">hier</Link> eerst registreren.</h4>
-                </article>
+            <section className='signin-remark'>
+                <div className='signin-remark-content'>
+                    <h4 className='signin-style-link'>
+                        Heeft u nog geen account? Dan kunt u zich <Link to="/signup">hier</Link> eerst registreren.
+                    </h4>
+                </div>
             </section>
         </main>
     );
