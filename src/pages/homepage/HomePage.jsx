@@ -7,7 +7,7 @@ import nationalParkImage from '../../assets/images/nationalParkImage1.jpg';
 
 function HomePage() {
     return (
-        <main className='outer-container-homepage'>
+        <main className='homepage-outer-container'>
             <section className='homepage-header'>
                 <div className='homepage-header-content'>
                     <h1>Ben je van plan om de Nationale Parken in de Verenigde Staten te gaan bezoeken?</h1>

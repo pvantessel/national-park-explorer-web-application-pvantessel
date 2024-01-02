@@ -1,0 +1,164 @@
+
+/* ALGEMEEN */
+
+.accommodation-outer-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #EAE3D2;
+    min-height: 100vh;
+}
+
+
+/* ACCOMMODATION HEADER */
+
+.accommodation-header {
+    background-image: url('../../assets/images/accommodationImage1.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid #40CD32;
+}
+
+.accommodation-header-content {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+/* ACCOMMODATION TEXT SECTION */
+
+.accommodation-text-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100%;
+    text-align: left;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-top: 1px solid #40CD32;
+    border-bottom: 1px solid #40CD32;
+    background-color: #FFFFFF;
+}
+
+.accommodation-text-section-content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ACCOMMODATION FILTER BUTTON */
+
+.accommodation-filter-and-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 40px 0;
+}
+
+.accommodation-style-filter-menu {
+    background-color: #3CBE6B;
+    border-radius: 4px;
+    border: 1px solid white;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+
+/* ACCOMMODATION MEDIA QUERIES */
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+
+}
+
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .accommodation-header-content {
+        padding: 10em 1em;
+        flex-basis: 80%;
+        margin: 1em;
+    }
+    .accommodation-header-content h1 {
+        margin: 1em;
+    }
+    .accommodation-text-section {
+        margin: 5em 0 3em 0;
+        padding: 1em 2em;
+        line-height: 1.75em;
+    }
+    .accommodation-text-section-content {
+        max-width: 50%;
+    }
+    .accommodation-text-section-content h3 {
+        margin: 1em 0;
+    }
+    .accommodation-text-section-content h5 {
+        margin-bottom: 1em;
+    }
+    .accommodation-filter-and-buttons {
+        margin: 2.5em 0;
+    }
+    .accommodation-style-filter-menu {
+        width: 200px;
+        font-size: 1.25em;
+        padding: 0.5em 1em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .accommodation-header-content {
+        padding: 20em 1em;
+        flex-basis: 60%;
+        margin: 1em;
+    }
+    .accommodation-header-content h1 {
+        margin: 1em;
+    }
+    .accommodation-text-section {
+        margin: 5em 0 3em 0;
+        padding: 1em 2em;
+        line-height: 2em;
+    }
+    .accommodation-text-section-content {
+        max-width: 40%;
+    }
+    .accommodation-text-section-content h3 {
+        margin: 1em 0;
+    }
+    .accommodation-text-section-content h5 {
+        margin-bottom: 1em;
+    }
+    .accommodation-filter-and-buttons {
+        margin: 3em 0;
+    }
+    .accommodation-style-filter-menu {
+        width: 200px;
+        font-size: 1.25em;
+        padding: 0.5em 1em;
+    }
+}

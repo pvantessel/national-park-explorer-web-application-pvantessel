@@ -1,46 +1,134 @@
-.notfound-container {
-    width: 100%;
-    min-height: 100vh;
-    color: #3E4047;
-    background-color: #FFFFFF;
+
+/* ALGEMEEN */
+
+.notfound-outer-container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #EAE3D2;
+    height: 100vh;
     align-items: center;
+    justify-content: center;
 }
 
-.notfound-container img {
-    width: 50%;
-    background-color: #3E4047;
-    border-radius: 30px;
-    padding: 50px;
-    box-shadow: 8px 8px 8px grey;
-    border: 1px solid #FFFFFF;
-    margin: 150px auto 50px auto;
+/* NOTFOUND MESSAGE TEXT SECTION */
+
+.notfound-message {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-top: 1px solid #40CD32;
+    border-bottom: 1px solid #40CD32;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 40vh;
 }
 
-.notfound-content-container {
+.notfound-message-content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
-    width: 90%;
-    background-color: #FFFFFF;
-    border-radius: 30px;
-    padding: 50px;
-    box-shadow: 8px 8px 8px grey;
-    border: 1px solid #3E4047;
-    margin: 50px auto 50px auto;
-    line-height: 1.5;
-    font-size: 24px;
 }
 
-.notfound-content-container p a,
-.notfound-content-container p a:visited {
+.notfound-message-content a,
+.notfound-message-content a:visited {
     text-decoration: none;
     color: #40CD32;
     font-weight: bold;
 }
 
-.notfound-content-container p a:hover {
-    color: #3E4047;
+.notfound-message-content a:hover {
+    color: #FB7302;
+}
+
+/* NOTFOUND MEDIA QUERIES */
+
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+    .notfound-message {
+        margin-bottom: 6em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 1.5em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
+}
+
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .notfound-message {
+        margin-bottom: 6em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 1em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .notfound-message {
+        margin-bottom: 6em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 1em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .notfound-message {
+        margin-bottom: 8em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 1em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .notfound-message {
+        margin-bottom: 10em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 1.5em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .notfound-message {
+        margin-bottom: 12em;
+        padding: 0 2em;
+    }
+    .notfound-message-content h3 {
+        margin-bottom: 2em;
+    }
+    .notfound-message-content h5 {
+        margin-bottom: 1em;
+    }
 }

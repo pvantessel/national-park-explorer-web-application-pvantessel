@@ -3,16 +3,14 @@ import {Link} from "react-router-dom";
 
 function NotFound() {
     return (
-        <section>
-            <div className="notfound-container">
-                <div className="notfound-content-container">
-                    <h2>Sorry, the web page you try to visit does not exist 🥹</h2>
-                    <p><Link to="/">Take me back to the HomePage.</Link></p>
+        <main className='notfound-outer-container'>
+            <section className='notfound-message'>
+                <div className='notfound-message-content'>
+                    <h3>Sorry, de webpagina die u probeert te bezoeken bestaat niet 🥹</h3>
+                    <h5>Klik <Link to="/">hier</Link> om terug te gaan naar de HomePage.</h5>
                 </div>
-            </div>
-
-
-        </section>
+            </section>
+        </main>
     );
 }
 

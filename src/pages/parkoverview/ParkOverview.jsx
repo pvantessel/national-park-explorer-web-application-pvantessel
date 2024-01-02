@@ -6,18 +6,18 @@ import Button from '../../components/button/Button.jsx';
 import stateAbbreviations from '../../constants/stateAbbreviations.jsx';
 
 function ParkOverview() {
-    const [parks, setParks] = useState([]);
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
     const parksPerPage = 20;
+    const [parks, setParks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedState, setSelectedState] = useState('');
     const [states, setStates] = useState([]);
-    const topRef = useRef();
     const indexOfLastPark = currentPage * parksPerPage;
     const indexOfFirstPark = indexOfLastPark - parksPerPage;
     const currentParks = parks.filter(park => !selectedState || park.states.split(',')[0] === selectedState).slice(indexOfFirstPark, indexOfLastPark);
     const [loading, toggleLoading] = useState(false);
     const [error, toggleError] = useState(false);
+    const topRef = useRef();
 
     useEffect(() => {
         // const controller = new AbortController();
@@ -27,6 +27,7 @@ function ParkOverview() {
             toggleError(false);
 
             try {
+                // Haal data op vanuit het parks endpoint
                 const response = await axios.get('https://developer.nps.gov/api/v1/parks?limit=500', {
                     headers: {
                         'X-Api-Key': apiKey,
@@ -43,6 +44,7 @@ function ParkOverview() {
                 setParks(updatedParks);
                 console.log(response);
 
+                //Update de states state met een geordende lijst van unieke staten die we halen uit de parkgegevens.
                 const uniqueStates = Array.from(new Set(updatedParks.map((park) => park.states.split(',')[0]))).sort();
                 setStates(uniqueStates);
 
@@ -68,19 +70,22 @@ function ParkOverview() {
         }
     }, []); // Dependency leeg laten omdat het effect alleen plaats vind bij mounten
 
+
+    // Deze functie wordt gebruikt om de huidige pagina bij te werken in de state en ook om het scherm automatisch
+    // naar een bepaalde plek (topRef) te laten scrollen wanneer naar een pagina wordt genavigeerd.
     function paginate(pageNumber) {
         setCurrentPage(pageNumber);
 
-        // Scroll naar boven wanneer naar de volgende pagina wordt genavigeerd
         if (topRef.current) {
             topRef.current.scrollIntoView({behavior: 'auto'});
         }
     }
 
+
     // Functie om de geselecteerde staat te wijzigen en de pagina terug te zetten naar de eerste pagina
     const handleStateChange = (e) => {
         setSelectedState(e.target.value);
-        setCurrentPage(1);  // Reset de pagina naar de eerste pagina
+        setCurrentPage(1);
     };
 
     return (
@@ -109,9 +114,9 @@ function ParkOverview() {
                 </div>
             </section>
 
-            <section className='filter-and-buttons' >
+            <section className='parkoverview-filter-and-buttons' >
                 {/*Dropdown filter om per state te filteren*/}
-                <select onChange={handleStateChange} className='style-filter-menu'>
+                <select onChange={handleStateChange} className='parkoverview-style-filter-menu'>
                     <option value="">Alle gebieden</option>
                     {states.map(state => (
                         <option key={state} value={state}>{stateAbbreviations[state] || 'Unknown'}</option>

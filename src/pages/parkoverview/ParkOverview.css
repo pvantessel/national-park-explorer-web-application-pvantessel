@@ -42,6 +42,9 @@
     flex-basis: auto;
     flex-grow: 1;
     flex-shrink: 1;
+    border-top: 1px solid #40CD32;
+    border-bottom: 1px solid #40CD32;
+    background-color: #FFFFFF;
 }
 
 .parkoverview-text-section-content {
@@ -51,14 +54,14 @@
 
 /* PARKOVERVIEW FILTER BUTTON */
 
-.filter-and-buttons {
+.parkoverview-filter-and-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 40px 0;
 }
 
-.style-filter-menu {
+.parkoverview-style-filter-menu {
     background-color: #3CBE6B;
     border-radius: 4px;
     border: 1px solid white;
@@ -88,7 +91,8 @@
 
 .park-card {
     display: flex;
-    flex-direction: row;
+    /*flex-direction: row;*/
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -127,7 +131,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 1em;
+        margin: 2em 0 1em 0;
         padding: 1em 2em;
         line-height: 1em;
     }
@@ -135,15 +139,15 @@
         max-width: 85%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.3em 0;
+        margin: 0.75em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.3em 0;
+        margin-bottom: 0.75em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 1em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 100px;
         font-size: 0.5em;
         padding: 1em 1em;
@@ -174,7 +178,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 2em;
+        margin: 3em 0 1.5em 0;
         padding: 1em 2em;
         line-height: 1.25em;
     }
@@ -182,15 +186,15 @@
         max-width: 65%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.4em 0;
+        margin: 0.75em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.4em 0;
+        margin-bottom: 0.75em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 1.5em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 150px;
         font-size: 0.75em;
         padding: 0.75em 1em;
@@ -221,7 +225,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 2em;
+        margin: 4em 0 1.5em 0;
         padding: 1em 2em;
         line-height: 1.25em;
     }
@@ -229,15 +233,15 @@
         max-width: 60%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.4em 0;
+        margin: 1em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.4em 0;
+        margin-bottom: 1em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 2em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 175px;
         font-size: 1em;
         padding: 0.75em 1em;
@@ -268,7 +272,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 2em;
+        margin: 5em 0 3em 0;
         padding: 1em 2em;
         line-height: 1.5em;
     }
@@ -276,15 +280,15 @@
         max-width: 60%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.5em 0;
+        margin: 1em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.5em 0;
+        margin-bottom: 1em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 2.5em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 175px;
         font-size: 1em;
         padding: 0.75em 1em;
@@ -315,7 +319,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 2em;
+        margin: 5em 0 3em 0;
         padding: 1em 2em;
         line-height: 1.75em;
     }
@@ -323,15 +327,15 @@
         max-width: 50%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.5em 0;
+        margin: 1em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.5em 0;
+        margin-bottom: 1em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 2.5em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 200px;
         font-size: 1.25em;
         padding: 0.5em 1em;
@@ -362,7 +366,7 @@
         margin: 1em;
     }
     .parkoverview-text-section {
-        margin-top: 2em;
+        margin: 5em 0 3em 0;
         padding: 1em 2em;
         line-height: 2em;
     }
@@ -370,15 +374,15 @@
         max-width: 40%;
     }
     .parkoverview-text-section-content h3 {
-        margin: 0.5em 0;
+        margin: 1em 0;
     }
     .parkoverview-text-section-content h5 {
-        margin: 0.5em 0;
+        margin-bottom: 1em;
     }
-    .filter-and-buttons {
+    .parkoverview-filter-and-buttons {
         margin: 3em 0;
     }
-    .style-filter-menu {
+    .parkoverview-style-filter-menu {
         width: 200px;
         font-size: 1.25em;
         padding: 0.5em 1em;
@@ -395,5 +399,8 @@
     }
     .park-card h2 {
         padding: 0 0.25em;
+    }
+    .park-card h4 {
+        margin-top: 1.5em;
     }
 }
