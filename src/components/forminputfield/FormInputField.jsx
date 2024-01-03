@@ -1,6 +1,6 @@
 
 // eslint-disable-next-line react/prop-types
-function FormInputField({labelName, labelClass, labelText, inputType, inputName, inputValue, setInput, required, placeholder, inputClass }) {
+function FormInputField({labelName, labelClass, labelText, inputType, inputName, inputValue, setInput, required, placeholder, onFocus,onBlur, inputClass, readOnly}) {
     return (
         <>
             <label htmlFor={labelName} className={labelClass}>{labelText}</label>
@@ -12,7 +12,10 @@ function FormInputField({labelName, labelClass, labelText, inputType, inputName,
                 required={required}
                 placeholder={placeholder}
                 onChange={(e) => setInput(e.target.value)}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 className={inputClass}
+                readOnly={readOnly}
             />
         </>
     );

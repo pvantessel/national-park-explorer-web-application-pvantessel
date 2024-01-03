@@ -23,7 +23,7 @@
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #40CD32;
+    border-bottom: 1px solid #3CBE6B;
 }
 
 .homepage-header-content {
@@ -64,7 +64,7 @@
     color: white;
     box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    border: 1px solid #40CD32;
+    border: 1px solid #3CBE6B;
 }
 
 .homepage-card a,

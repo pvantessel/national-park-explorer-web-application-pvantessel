@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
+import noImageAvailable from "../../assets/images/noImageAvailable.jpg";
 
-function AccommodationCard({ campgrounds }) {
+// eslint-disable-next-line react/prop-types
+function AccommodationCard({classNameCard, classNameText, campground, linkUrl}) {
+
+    const backgroundImg = campground.imageUrl || noImageAvailable;
+
     return (
-        <section className='campgrounds-list'>
-            {campgrounds
-                .sort((a, b) => a.name.localeCompare(b.name))
-                .map((campground) => (
-                    <div key={campground.id}>
-                        <h5>{campground.name}</h5>
-                    </div>
-                ))}
-        </section>
+        <div className={classNameCard} style={{backgroundImage: `url(${backgroundImg})`}}>
+            <div className={classNameText}>
+                <Link to={linkUrl}><h2>{campground.name}</h2></Link>
+            </div>
+        </div>
     );
 }
 
 AccommodationCard.propTypes = {
-    campgrounds: PropTypes.array.isRequired,
+    campground: PropTypes.object.isRequired,
 };
 
 export default AccommodationCard;

@@ -1,0 +1,332 @@
+
+/* ALGEMEEN */
+
+.profile-outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 100vh;
+    background-image: url('../../assets/images/bison-profile-page.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+}
+
+.profile-style-username {
+    color: #FB7302;
+}
+
+/* PROFILE HEADER */
+
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-header-content {
+    color: #FFFFFF;
+}
+
+/* PROFILE FORM FIELDS*/
+
+.profile-form-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px rgba(255, 255, 255, 0.5);
+    border: 2px solid #FFFFFF;
+}
+
+.profile-form {
+    width: 95%;
+}
+
+.profile-form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.profile-form-entry-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-form-label-class-style {
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.profile-form-input-class-style {
+    border-radius: 5px;
+}
+
+.profile-form-input-class-style:hover {
+    background-color: #FB7302;
+    color: #FFFFFF;
+}
+
+/* PROFILE REMARK */
+
+.profile-remark {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-remark-content {
+    color: #FFFFFF;
+}
+
+.profile-style-link a,
+.profile-style-link a:visited {
+    text-decoration: none;
+    color: #3CBE6B;
+}
+
+.profile-style-link a:hover {
+    color: #FB7302;
+}
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+    .profile-header {
+        margin: 4em 0;
+    }
+    .profile-header-content {
+        margin: 0.5em;
+    }
+    .profile-form-style {
+        width: 90%;
+        margin: 0;
+        padding: 1.5em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 1.5em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 0.75em;
+        gap: 0.5em;
+    }
+    .profile-form-label-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 0.75em;
+        padding: 0.1em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 5em 0;
+    }
+    .profile-remark-content {
+        margin: 0.5em;
+    }
+}
+
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .profile-header {
+        margin: 3em 0;
+    }
+    .profile-header-content {
+        margin: 1em;
+    }
+    .profile-form-style {
+        width: 75%;
+        margin: 0;
+        padding: 2em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 2em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 1em;
+        gap: 1em;
+    }
+    .profile-form-label-class-style {
+        font-size: 1em;
+        padding: 0.1em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 1em;
+        padding: 0.1em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 4em 0;
+    }
+    .profile-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .profile-header {
+        margin: 7em 0 5em 0;
+    }
+    .profile-header-content {
+        margin: 1em;
+    }
+    .profile-form-style {
+        width: 75%;
+        margin: 0;
+        padding: 3em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 2.25em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.25em;
+    }
+    .profile-form-label-class-style {
+        font-size: 1em;
+        padding: 0.2em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 1em;
+        padding: 0.2em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 8em 0;
+    }
+    .profile-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .profile-header {
+        margin: 7em 0 6em 0;
+    }
+    .profile-header-content {
+        margin: 1em;
+    }
+    .profile-form-style {
+        width: 70%;
+        margin: 0;
+        padding: 3em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 2.5em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 1.25em;
+        gap: 1.5em;
+    }
+    .profile-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 10em 0;
+    }
+    .profile-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .profile-header {
+        margin: 4em 0;
+    }
+    .profile-header-content {
+        margin: 1em;
+    }
+    .profile-form-style {
+        width: 40%;
+        margin: 0;
+        padding: 3em 0 2em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 3em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
+    }
+    .profile-form-label-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 1.25em;
+        padding: 0.2em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 6em 0;
+    }
+    .profile-remark-content {
+        margin: 1em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .profile-header {
+        margin: 7em 0;
+    }
+    .profile-header-content {
+        margin: 1em;
+    }
+    .profile-form-style {
+        width: 35%;
+        margin: 0;
+        padding: 4em 0 3em 0;
+    }
+    .profile-form-header {
+        margin-bottom: 3em;
+    }
+    .profile-form-entry-style {
+        margin-bottom: 1.5em;
+        gap: 1.5em;
+    }
+    .profile-form-label-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 30%;
+    }
+    .profile-form-input-class-style {
+        font-size: 1.5em;
+        padding: 0.25em;
+        width: 70%;
+    }
+    .profile-remark {
+        margin: 10em 0;
+    }
+    .profile-remark-content {
+        margin: 1em;
+    }
+}
+

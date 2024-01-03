@@ -21,8 +21,8 @@
     align-items: center;
     flex-grow: 1;
     flex-shrink: 1;
-    border-top: 1px solid #40CD32;
-    border-bottom: 1px solid #40CD32;
+    border-top: 1px solid #3CBE6B;
+    border-bottom: 1px solid #3CBE6B;
     background-color: #FFFFFF;
     width: 100%;
     height: 40vh;
@@ -38,7 +38,7 @@
 .notfound-message-content a,
 .notfound-message-content a:visited {
     text-decoration: none;
-    color: #40CD32;
+    color: #3CBE6B;
     font-weight: bold;
 }
 

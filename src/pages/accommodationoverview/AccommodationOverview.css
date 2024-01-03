@@ -23,7 +23,7 @@
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #40CD32;
+    border-bottom: 1px solid #3CBE6B;
 }
 
 .accommodation-header-content {
@@ -43,8 +43,8 @@
     flex-basis: auto;
     flex-grow: 1;
     flex-shrink: 1;
-    border-top: 1px solid #40CD32;
-    border-bottom: 1px solid #40CD32;
+    border-top: 1px solid #3CBE6B;
+    border-bottom: 1px solid #3CBE6B;
     background-color: #FFFFFF;
 }
 
@@ -60,6 +60,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: baseline;
     margin: 40px 0;
 }
 
@@ -71,27 +72,105 @@
     cursor: pointer;
 }
 
+/* ACCOMMODATION CARDS */
 
+.accommodation-cards-outer-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.accommodation-cards-inner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-basis: 100vw;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.accommodation-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    flex-shrink: 1;
+    flex-grow: 0;
+    color: #FFFFFF;
+    background-color: #3CBE6B;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.4);
+}
+
+.accommodation-card-text {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid #3CBE6B;
+    border-bottom: 1px solid #3CBE6B;
+    width: 100%;
+}
+
+.accommodation-card a,
+.accommodation-card a:visited,
+.accommodation-card a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.accommodation-card a:hover {
+    color: #FB7302;
+}
 
 /* ACCOMMODATION MEDIA QUERIES */
 
 /* Telefoon in portrait mode */
 @media screen and (max-width: 576px) {
 
+    .select-campgrounds-page label{
+        font-size: 0.5em;
+    }
+    .select-campgrounds-page select{
+        font-size: 0.5em;
+    }
 }
 
 /* Telefoon in landscape mode */
 @media screen and (min-width: 576px) and (max-width: 767px) {
 
+    .select-campgrounds-page label{
+        font-size: 0.75em;
+    }
+    .select-campgrounds-page select{
+        font-size: 0.75em;
+    }
 }
 
 /* Tablets */
 @media screen and (min-width: 768px) and (max-width: 991px) {
 
+    .select-campgrounds-page label{
+        font-size: 1em;
+    }
+    .select-campgrounds-page select{
+        font-size: 1em;
+    }
 }
 
 /* Grote tablets en kleine computer schermen */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .select-campgrounds-page label{
+        font-size: 1em;
+    }
+    .select-campgrounds-page select{
+        font-size: 1em;
+    }
 
 }
 
@@ -127,6 +206,25 @@
         font-size: 1.25em;
         padding: 0.5em 1em;
     }
+    .accommodation-cards-inner-container {
+        padding: 0 1.5em;
+        gap: 3em;
+        margin: 0 1em;
+    }
+    .accommodation-card {
+        width: 500px;
+        height: 375px;
+        margin: 3em;
+    }
+    .accommodation-card-text {
+        padding: 0.5em;
+    }
+    .select-campgrounds-page label{
+        font-size: 1.25em;
+    }
+    .select-campgrounds-page select{
+        font-size: 1.25em;
+    }
 }
 
 /* Extra Large computer schermen */
@@ -161,4 +259,24 @@
         font-size: 1.25em;
         padding: 0.5em 1em;
     }
+    .accommodation-cards-inner-container {
+        padding: 0 2em;
+        gap: 8em;
+        margin: 0 4em;
+    }
+    .accommodation-card {
+        width: 600px;
+        height: 450px;
+        margin: 2em;
+    }
+    .accommodation-card-text {
+        padding: 0.5em;
+    }
+    .select-campgrounds-page label{
+        font-size: 1.25em;
+    }
+    .select-campgrounds-page select{
+        font-size: 1.25em;
+    }
+
 }

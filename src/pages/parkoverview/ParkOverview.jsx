@@ -7,9 +7,9 @@ import stateAbbreviations from '../../constants/stateAbbreviations.jsx';
 
 function ParkOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
-    const parksPerPage = 20;
     const [parks, setParks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [parksPerPage, setParksPerPage] = useState(20);
     const [selectedState, setSelectedState] = useState('');
     const [states, setStates] = useState([]);
     const indexOfLastPark = currentPage * parksPerPage;
@@ -81,6 +81,12 @@ function ParkOverview() {
         }
     }
 
+    // Deze functie wordt gebruikt om het aantal parken per pagina aan te kunnen passen (20 of 50)
+    function handleParksPerPageChange(event) {
+        setParksPerPage(parseInt(event.target.value, 10));
+        setCurrentPage(1);
+    }
+
 
     // Functie om de geselecteerde staat te wijzigen en de pagina terug te zetten naar de eerste pagina
     const handleStateChange = (e) => {
@@ -115,14 +121,6 @@ function ParkOverview() {
             </section>
 
             <section className='parkoverview-filter-and-buttons' >
-                {/*Dropdown filter om per state te filteren*/}
-                <select onChange={handleStateChange} className='parkoverview-style-filter-menu'>
-                    <option value="">Alle gebieden</option>
-                    {states.map(state => (
-                        <option key={state} value={state}>{stateAbbreviations[state] || 'Unknown'}</option>
-                    ))}
-                </select>
-
                 <div>
                     <Button
                         buttonType='button'
@@ -142,6 +140,13 @@ function ParkOverview() {
                         Volgende
                     </Button>
                 </div>
+                {/*Dropdown filter om per state te filteren*/}
+                <select onChange={handleStateChange} className='parkoverview-style-filter-menu'>
+                    <option value="">Alle gebieden</option>
+                    {states.map(state => (
+                        <option key={state} value={state}>{stateAbbreviations[state] || 'Unknown'}</option>
+                    ))}
+                </select>
             </section>
 
             <section className='park-cards-outer-container'>
@@ -155,6 +160,8 @@ function ParkOverview() {
                                 park={park}
                                 linkUrl='/profile'
                                 className='park-card'
+                                classNameCard='park-card'
+                                classNameText='park-card-text'
                             />
                         ))}
                     </div>
@@ -165,7 +172,7 @@ function ParkOverview() {
 
             </section>
 
-            <section className='filter-and-buttons'>
+            <section className='parkoverview-filter-and-buttons'>
                 <div>
                     <Button
                         buttonType='button'
@@ -184,6 +191,17 @@ function ParkOverview() {
                     >
                         Volgende
                     </Button>
+                </div>
+                <div className='select-parks-page'>
+                    <label htmlFor="parksPerPage">Aantal parken per pagina: </label>
+                    <select
+                        id="parksPerPage"
+                        onChange={handleParksPerPageChange}
+                        value={parksPerPage}
+                    >
+                        <option value={20}>20</option>
+                        <option value={50}>50</option>
+                    </select>
                 </div>
             </section>
         </main>

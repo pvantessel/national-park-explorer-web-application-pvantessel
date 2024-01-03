@@ -29,7 +29,7 @@ function App() {
                     <Route path='/multimedia' element={<MultiMedia/>}/>
                     <Route path="/parkdetails/:id" element={<ParkDetails/>}/>
                     <Route path='/parken' element={<ParkOverview/>}/>
-                    <Route path='/profile' element={isAuth ? <Profile/> : <p>Gebruiker is nog niet ingelogd</p>}/>
+                    <Route path='/profile' element={isAuth ? <Profile/> : <SignIn/> }/>
                     <Route path='/signin' element={isAuth ? <p>U bent al ingelogd</p> : <SignIn/>}/>
                     <Route path='/signup' element={isAuth ? <p>Log eerst uit om u te kunnen registreren</p> : <SignUp/>}/>
                     <Route path='*' element={<NotFound/>}/>

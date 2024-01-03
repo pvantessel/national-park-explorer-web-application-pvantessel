@@ -83,6 +83,9 @@ function Navigation() {
                         <li onClick={closeMenu}>
                             <Link to="/multimedia">Foto & Video</Link>
                         </li>
+                        <li onClick={closeMenu}>
+                            <Link to="/profile">Profiel pagina</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

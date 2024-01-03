@@ -22,7 +22,7 @@
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #40CD32;
+    border-bottom: 1px solid #3CBE6B;
 }
 
 .parkoverview-header-content {
@@ -42,8 +42,8 @@
     flex-basis: auto;
     flex-grow: 1;
     flex-shrink: 1;
-    border-top: 1px solid #40CD32;
-    border-bottom: 1px solid #40CD32;
+    border-top: 1px solid #3CBE6B;
+    border-bottom: 1px solid #3CBE6B;
     background-color: #FFFFFF;
 }
 
@@ -91,7 +91,6 @@
 
 .park-card {
     display: flex;
-    /*flex-direction: row;*/
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -102,9 +101,16 @@
     border: 1px solid #FFFFFF;
     flex-shrink: 1;
     flex-grow: 0;
-    color: white;
+    color: #FFFFFF;
     background-color: #3CBE6B;
     box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.4);
+}
+
+.park-card-text {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid #3CBE6B;
+    border-bottom: 1px solid #3CBE6B;
+    width: 100%;
 }
 
 .park-card a,
@@ -162,8 +168,17 @@
         height: 225px;
         margin: 0.75em;
     }
-    .park-card h2 {
-        padding: 0 0.25em;
+    .park-card h4 {
+        margin-top: 0.25em;
+    }
+    .park-card-text {
+        padding: 0.25em;
+    }
+    .select-parks-page label{
+        font-size: 0.5em;
+    }
+    .select-parks-page select {
+        font-size: 0.5em;
     }
 }
 
@@ -209,8 +224,17 @@
         height: 210px;
         margin: 0.5em;
     }
-    .park-card h2 {
-        padding: 0 0.25em;
+    .park-card h4 {
+        margin-top: 0.25em;
+    }
+    .park-card-text {
+        padding: 0.25em;
+    }
+    .select-parks-page label{
+        font-size: 0.75em;
+    }
+    .select-parks-page select {
+        font-size: 0.75em;
     }
 }
 
@@ -256,8 +280,17 @@
         height: 225px;
         margin: 0.75em;
     }
-    .park-card h2 {
-        padding: 0 0.25em;
+    .park-card h4 {
+        margin-top: 0.25em;
+    }
+    .park-card-text {
+        padding: 0.25em;
+    }
+    .select-parks-page label{
+        font-size: 1em;
+    }
+    .select-parks-page select {
+        font-size: 1em;
     }
 }
 
@@ -303,8 +336,17 @@
         height: 300px;
         margin: 1.5em;
     }
-    .park-card h2 {
-        padding: 0 0.5em;
+    .park-card h4 {
+        margin-top: 0.25em;
+    }
+    .park-card-text {
+        padding: 0.25em;
+    }
+    .select-parks-page label{
+        font-size: 1em;
+    }
+    .select-parks-page select {
+        font-size: 1em;
     }
 }
 
@@ -350,8 +392,17 @@
         height: 375px;
         margin: 3em;
     }
-    .park-card h2 {
-        padding: 0 0.5em;
+    .park-card h4 {
+        margin-top: 0.5em;
+    }
+    .park-card-text {
+        padding: 0.5em;
+    }
+    .select-parks-page label{
+        font-size: 1.25em;
+    }
+    .select-parks-page select {
+        font-size: 1.25em;
     }
 }
 
@@ -397,10 +448,16 @@
         height: 450px;
         margin: 2em;
     }
-    .park-card h2 {
-        padding: 0 0.25em;
-    }
     .park-card h4 {
-        margin-top: 1.5em;
+        margin-top: 0.5em;
+    }
+    .park-card-text {
+        padding: 0.5em;
+    }
+    .select-parks-page label{
+        font-size: 1.25em;
+    }
+    .select-parks-page select {
+        font-size: 1.25em;
     }
 }

@@ -58,19 +58,24 @@ function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log("we loggen nu hier de result")
-            console.log(result);
 
             // zet de data in de state
             toggleIsAuth({
                 isAuth: true,
                 user: {
+                    // username: result.data.username,
+                    // email: result.data.email,
                     username: result.data.username,
                     email: result.data.email,
-                    // id: result.data.id,
+                    roles: result.data.roles,
                 },
                 status: 'done',
             });
+
+            console.log(result.data.username);
+            console.log(result.data.email);
+            console.log(result.data.roles);
+
 
             // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we hiernaartoe door
             // als we de navigate in de login-functie zouden zetten, linken we al door voor de gebuiker is opgehaald!
@@ -80,7 +85,6 @@ function AuthContextProvider({children}) {
 
         } catch (e) {
             console.error(e);
-            console.log("er ging wat mis")
             // ging er iets mis? Plaatsen we geen data in de state
             toggleIsAuth({
                 isAuth: false,
@@ -97,8 +101,6 @@ function AuthContextProvider({children}) {
             user: null,
             status: 'done',
         });
-
-        console.log('Gebruiker is uitgelogd!');
         navigate('/');
     }
 

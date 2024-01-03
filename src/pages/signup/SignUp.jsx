@@ -11,8 +11,13 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
+    const [info, setInfo] = useState('');
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
+    const [isUsernameFocused, setIsUsernameFocused] = useState(false);
+    const [isEmailFocused, setIsEmailFocused] = useState(false);
+    const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+    const [isRoleFocused, setIsRoleFocused] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -24,6 +29,7 @@ function SignUp() {
                 username: username,
                 email: email,
                 password: password,
+                info: info,
                 role: [role],
             });
             navigate('/signin');
@@ -61,7 +67,10 @@ function SignUp() {
                             inputValue={username}
                             setInput={setUsername}
                             required={true}
-                            placeholder='bv. patrickvantessel'
+                            placeholder={isUsernameFocused ? '' : 'bv. patrickvantessel'}
+                            onFocus={() => setIsUsernameFocused(true)}
+                            onBlur={() => setIsUsernameFocused(false)}
+                            readOnly={false}
                         />
                     </div>
 
@@ -76,7 +85,10 @@ function SignUp() {
                             inputValue={email}
                             setInput={setEmail}
                             required={true}
-                            placeholder='bv. patrick.van.tessel@capazit.nl'
+                            placeholder={isEmailFocused ? '' : 'bv. patrick.van.tessel@capazit.nl'}
+                            onFocus={() => setIsEmailFocused(true)}
+                            onBlur={() => setIsEmailFocused(false)}
+                            readOnly={false}
                         />
                     </div>
 
@@ -91,7 +103,25 @@ function SignUp() {
                             inputValue={password}
                             setInput={setPassword}
                             required={true}
-                            placeholder='Wachtwoord'
+                            placeholder={isPasswordFocused ? '' : 'Wachtwoord'}
+                            onFocus={() => setIsPasswordFocused(true)}
+                            onBlur={() => setIsPasswordFocused(false)}
+                            readOnly={false}
+                        />
+                    </div>
+
+                    <div className='signup-form-entry-style'>
+                        <FormInputField
+                            labelClass='signup-form-label-class-style'
+                            inputClass='signup-form-input-class-style'
+                            labelName='inputInfo'
+                            labelText='Info'
+                            inputType='text'
+                            inputName='inputInfo'
+                            inputValue={info}
+                            setInput={setInfo}
+                            required={false}
+                            readOnly={false}
                         />
                     </div>
 
@@ -106,7 +136,10 @@ function SignUp() {
                             inputValue={role}
                             setInput={setRole}
                             required={true}
-                            placeholder='bv. admin of user'
+                            placeholder={isRoleFocused ? '' : 'bv. admin of user'}
+                            onFocus={() => setIsRoleFocused(true)}
+                            onBlur={() => setIsRoleFocused(false)}
+                            readOnly={false}
                         />
                     </div>
 

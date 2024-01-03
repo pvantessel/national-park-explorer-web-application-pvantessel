@@ -12,6 +12,8 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
+    const [isUsernameFocused, setIsUsernameFocused] = useState(false);
+    const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -25,7 +27,8 @@ function SignIn() {
             });
 
             // geef de JWT token aan de login-functie van de context mee
-            login(result.data.accessToken);
+            login(result.data.accessToken, result.data.user);
+            // login(result.data.accessToken);
 
         } catch (e) {
             console.error(e);
@@ -59,7 +62,9 @@ function SignIn() {
                                 inputValue={username}
                                 setInput={setUsername}
                                 required={true}
-                                placeholder='bv. patrickvantessel'
+                                placeholder={isUsernameFocused ? '' : 'bv. patrickvantessel'}
+                                onFocus={() => setIsUsernameFocused(true)}
+                                onBlur={() => setIsUsernameFocused(false)}
                             />
                         </div>
 
@@ -74,7 +79,9 @@ function SignIn() {
                                 inputValue={password}
                                 setInput={setPassword}
                                 required={true}
-                                placeholder="Wachtwoord"
+                                placeholder={isPasswordFocused ? '' : 'Wachtwoord'}
+                                onFocus={() => setIsPasswordFocused(true)}
+                                onBlur={() => setIsPasswordFocused(false)}
                             />
                         </div>
 
