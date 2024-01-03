@@ -1,6 +1,5 @@
 import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
 import axios from "axios";
 
 export const AuthContext = createContext({});
@@ -17,17 +16,13 @@ function AuthContextProvider({children}) {
 
     // // Mounten
     useEffect(() => {
-        console.log("Ik ben opnieuw gemount");
         // Haal de token op uit Local Storage
         const token = localStorage.getItem('token');
 
         // Is er een token, haal dan de info van de gebruiker op
         if (token) {
-            // const decoded = jwtDecode(token);
             void fetchUserData(token);
-            console.log(`Inhoud van token is: ${token}`);
         } else {
-            console.log('er is geen token');
             // Is er geen token dan de status op 'done' zetten.
             toggleIsAuth({
                 isAuth: false,
@@ -40,9 +35,6 @@ function AuthContextProvider({children}) {
     function login(token) {
         // Plaats de token in de Local Storage
         localStorage.setItem('token', token);
-        // Decoderen van het token en plaats in var decoded
-        // const decoded = jwtDecode(token);
-        // console.log(decoded);
 
         // geef de token en redirect-link mee aan de fetchUserData functie
         void fetchUserData(token, `/profile`);
@@ -63,19 +55,12 @@ function AuthContextProvider({children}) {
             toggleIsAuth({
                 isAuth: true,
                 user: {
-                    // username: result.data.username,
-                    // email: result.data.email,
                     username: result.data.username,
                     email: result.data.email,
                     roles: result.data.roles,
                 },
                 status: 'done',
             });
-
-            console.log(result.data.username);
-            console.log(result.data.email);
-            console.log(result.data.roles);
-
 
             // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we hiernaartoe door
             // als we de navigate in de login-functie zouden zetten, linken we al door voor de gebuiker is opgehaald!

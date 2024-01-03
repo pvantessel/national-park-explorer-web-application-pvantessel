@@ -19,8 +19,6 @@ function Navigation() {
         setMenuOpen(false);
     };
 
-    console.log(`isAuth gevuld met: ${isAuth}`);
-
     return (
         <nav>
             <Link to="/">
@@ -50,7 +48,7 @@ function Navigation() {
                     </div>
                     :
                     <div className='logout-name-div'>
-                        <p className='displayEmail'>{user.email}</p>
+                        <p className='displayEmail'>Welkom {user.username}</p>
                         <Button
                             buttonType='button'
                             clickHandler={logout}
@@ -61,8 +59,13 @@ function Navigation() {
                     </div>
                 }
 
-                <div className={`hamburger-menu ${menuOpen ? 'open' : ''}`}>
-                    <div className="menu-icon" onClick={toggleMenu}>
+                <div className={`hamburger-menu ${menuOpen ? 'open' : ''}`}
+                >
+                    <div className="menu-icon"
+                         onClick={toggleMenu}
+                         onMouseEnter={toggleMenu}
+                         onMouseLeave={closeMenu}
+                    >
                         <div className="bar"></div>
                         <div className="bar"></div>
                         <div className="bar"></div>

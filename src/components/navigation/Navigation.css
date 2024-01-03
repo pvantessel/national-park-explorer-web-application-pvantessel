@@ -41,6 +41,7 @@ nav {
 
 .displayEmail {
     color: #FFFFFF;
+    text-align: center;
 }
 
 /* LOGIN & REGISTER BUTTON*/
@@ -230,7 +231,7 @@ nav {
         gap: 1.5em;
     }
     .logout-name-div {
-        flex-basis: 300px;
+        flex-basis: 400px;
         gap: 1.5em;
     }
     .hamburger-menu {
@@ -269,7 +270,7 @@ nav {
         gap: 2em;
     }
     .logout-name-div {
-        flex-basis: 400px;
+        flex-basis: 500px;
         gap: 2em;
     }
     .hamburger-menu {
@@ -309,7 +310,7 @@ nav {
         gap: 3em;
     }
     .logout-name-div {
-        flex-basis: 400px;
+        flex-basis: 600px;
         gap: 2em;
     }
     .hamburger-menu {

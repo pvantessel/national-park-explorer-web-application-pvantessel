@@ -17,6 +17,8 @@ function AccommodationOverview() {
     const [error, toggleError] = useState(false);
 
     useEffect(() => {
+        const controller = new AbortController();
+
         async function fetchCampgrounds() {
             toggleLoading(true);
             toggleError(false);
@@ -28,6 +30,7 @@ function AccommodationOverview() {
                         headers: {
                             'X-Api-Key': apiKey,
                         },
+                        signal: controller.signal,
                     }
                 );
                 const campgroundsResponse = await axios.get(
@@ -70,7 +73,8 @@ function AccommodationOverview() {
 
         fetchCampgrounds();
 
-        return () => {
+        return function cleanup() {
+            controller.abort(); // <--- request annuleren
             console.log('unmount effect is triggered');
         }
     }, []);

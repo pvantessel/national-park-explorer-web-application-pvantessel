@@ -20,7 +20,7 @@ function ParkOverview() {
     const topRef = useRef();
 
     useEffect(() => {
-        // const controller = new AbortController();
+        const controller = new AbortController();
 
         async function fetchParks() {
             toggleLoading(true);
@@ -32,7 +32,7 @@ function ParkOverview() {
                     headers: {
                         'X-Api-Key': apiKey,
                     },
-                    // signal: controller.signal,
+                    signal: controller.signal,
                 });
 
                 // Map door de parken en controleer of een afbeeldings-URL beschikbaar is
@@ -42,7 +42,6 @@ function ParkOverview() {
                 });
 
                 setParks(updatedParks);
-                console.log(response);
 
                 //Update de states state met een geordende lijst van unieke staten die we halen uit de parkgegevens.
                 const uniqueStates = Array.from(new Set(updatedParks.map((park) => park.states.split(',')[0]))).sort();
@@ -50,13 +49,8 @@ function ParkOverview() {
 
 
             } catch (e) {
-                // if (axios.isCancel(e)) {
-                //     console.error('Request is canceled...');
-                // } else {
                     console.error(e);
                     toggleError(true);
-                // }
-                // console.error('Error fetching park data:', error);
             } finally {
                 toggleLoading(false);
             }
@@ -64,9 +58,9 @@ function ParkOverview() {
 
         fetchParks();
 
-        return () => {
+        return function cleanup() {
+            controller.abort(); // <--- request annuleren
             console.log('unmount effect is triggered');
-            // controller.abort();
         }
     }, []); // Dependency leeg laten omdat het effect alleen plaats vind bij mounten
 
