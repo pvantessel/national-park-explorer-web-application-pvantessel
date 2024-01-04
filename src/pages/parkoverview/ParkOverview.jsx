@@ -47,23 +47,21 @@ function ParkOverview() {
                 const uniqueStates = Array.from(new Set(updatedParks.map((park) => park.states.split(',')[0]))).sort();
                 setStates(uniqueStates);
 
-
             } catch (e) {
-                    console.error(e);
-                    toggleError(true);
+                console.error(e);
+                toggleError(true);
             } finally {
                 toggleLoading(false);
             }
         }
 
-        fetchParks();
+        void fetchParks();
 
         return function cleanup() {
             controller.abort(); // <--- request annuleren
             console.log('unmount effect is triggered');
         }
     }, []); // Dependency leeg laten omdat het effect alleen plaats vind bij mounten
-
 
     // Deze functie wordt gebruikt om de huidige pagina bij te werken in de state en ook om het scherm automatisch
     // naar een bepaalde plek (topRef) te laten scrollen wanneer naar een pagina wordt genavigeerd.
@@ -81,7 +79,6 @@ function ParkOverview() {
         setCurrentPage(1);
     }
 
-
     // Functie om de geselecteerde staat te wijzigen en de pagina terug te zetten naar de eerste pagina
     const handleStateChange = (e) => {
         setSelectedState(e.target.value);
@@ -96,7 +93,7 @@ function ParkOverview() {
                 </div>
             </section>
 
-            <section className='parkoverview-text-section' ref={topRef} >
+            <section className='parkoverview-text-section' ref={topRef}>
                 <div className='parkoverview-text-section-content'>
                     <h3>
                         Op zoek naar een "mooi pareltje".
@@ -114,7 +111,7 @@ function ParkOverview() {
                 </div>
             </section>
 
-            <section className='parkoverview-filter-and-buttons' >
+            <section className='parkoverview-filter-and-buttons'>
                 <div>
                     <Button
                         buttonType='button'
@@ -152,7 +149,7 @@ function ParkOverview() {
                             <ParkCard
                                 key={park.id}
                                 park={park}
-                                linkUrl='/profile'
+                                linkUrl={`/parkdetails/${park.id}`}
                                 className='park-card'
                                 classNameCard='park-card'
                                 classNameText='park-card-text'

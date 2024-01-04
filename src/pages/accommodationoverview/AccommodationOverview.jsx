@@ -71,7 +71,7 @@ function AccommodationOverview() {
             }
         }
 
-        fetchCampgrounds();
+        void fetchCampgrounds();
 
         return function cleanup() {
             controller.abort(); // <--- request annuleren

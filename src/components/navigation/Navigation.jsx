@@ -64,13 +64,14 @@ function Navigation() {
                     <div className="menu-icon"
                          onClick={toggleMenu}
                          onMouseEnter={toggleMenu}
-                         onMouseLeave={closeMenu}
                     >
                         <div className="bar"></div>
                         <div className="bar"></div>
                         <div className="bar"></div>
                     </div>
-                    <ul className="menu-items">
+                    <ul className="menu-items"
+                        onMouseLeave={closeMenu}
+                    >
                         <li onClick={closeMenu}>
                             <Link to="/">Home</Link>
                         </li>

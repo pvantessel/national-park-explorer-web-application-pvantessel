@@ -13,7 +13,8 @@ function ParkCard({classNameCard, classNameText, linkUrl, park}) {
         <div className={classNameCard} style={{backgroundImage: `url(${backgroundImg})`}}>
             <div className={classNameText}>
                 <Link to={linkUrl}><h2>{park.fullName}</h2></Link>
-                {park.states && ( <h4>( {stateAbbreviations[park.states.split(',')[0]] || 'Unknown'} )</h4> )}
+                {park.states && (<h4>( {stateAbbreviations[park.states.split(',')[0]] || 'Unknown'} )</h4>)}
+                <p>{park.id}</p>
             </div>
         </div>
     );

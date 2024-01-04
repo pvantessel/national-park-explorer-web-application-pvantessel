@@ -1,0 +1,16 @@
+
+/* ALGEMEEN */
+
+.parkdetails-outer-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: #EAE3D2;
+    min-height: 100vh;
+}
+
+.parkdetails-outer-container p {
+    margin: 1em 0;
+}
