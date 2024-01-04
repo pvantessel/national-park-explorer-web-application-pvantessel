@@ -1,16 +1,151 @@
-
 /* ALGEMEEN */
 
 .parkdetails-outer-container {
     display: flex;
-    flex-direction: column;
-    flex-basis: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     flex-grow: 1;
     flex-shrink: 1;
-    background-color: #EAE3D2;
     min-height: 100vh;
+    background-image: url('../../assets/images/background-image-park-details.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
 }
 
-.parkdetails-outer-container p {
-    margin: 1em 0;
+.parkdetails-inner-container {
+    display: flex;
+    flex-direction: column;
+    /*align-items: flex-start;*/
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 12px 12px 12px rgba(255, 255, 255, 0.5);
+    border: 2px solid #FFFFFF;
+}
+
+/* PARK DETAILS */
+
+.park-details-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.park-details-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #FFFFFF;
+}
+
+.park-details-address {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #FFFFFF;
+}
+
+.park-details-address a,
+.park-details-address a:visited {
+    text-decoration: none;
+    color: #3CBE6B;
+}
+
+.park-details-address a:hover {
+    color: #FB7302;
+}
+
+
+/* PARK DETAILS MEDIA QUERIES */
+
+/* Telefoon in portrait mode */
+@media screen and (max-width: 576px) {
+
+}
+
+/* Telefoon in landscape mode */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Grote tablets en kleine computer schermen */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Standaard computer scherm */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .parkdetails-inner-container {
+        max-width: 70%;
+        padding: 2em;
+        margin: 8em 0;
+    }
+    .park-details-header {
+        margin: 2em 0;
+    }
+    .park-details-description {
+        margin: 1em 0;
+    }
+    .park-details-description h3 {
+        margin-bottom: 0.75em;
+        text-decoration: underline;
+    }
+    .park-details-description h4 {
+        margin-bottom: 0.5em;
+        line-height: 1.25em;
+    }
+    .park-details-address {
+        margin: 1em 0;
+    }
+    .park-details-address h3 {
+        margin-bottom: 0.25em;
+        text-decoration: underline;
+    }
+    .park-details-address h5 {
+        margin: 1em 0 1em 0;
+        line-height: 1.25em;
+    }
+}
+
+/* Extra Large computer schermen */
+@media screen and (min-width: 1600px) {
+    .parkdetails-inner-container {
+        max-width: 60%;
+        padding: 3em;
+        margin: 8em 0;
+    }
+    .park-details-header {
+        margin: 3em 0;
+    }
+    .park-details-description {
+        margin: 1em 6em 1em 0;
+    }
+    .park-details-description h3 {
+        margin-bottom: 0.5em;
+        text-decoration: underline;
+    }
+    .park-details-description h4 {
+        margin-bottom: 0.5em;
+        line-height: 1.25em;
+    }
+    .park-details-address {
+        margin: 2em 0;
+    }
+    .park-details-address h3 {
+        margin-bottom: 0.5em;
+        text-decoration: underline;
+    }
+    .park-details-address h5 {
+        margin: 0.5em 0 1em 0;
+        line-height: 1.5em;
+    }
 }

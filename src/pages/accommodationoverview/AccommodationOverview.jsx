@@ -25,20 +25,23 @@ function AccommodationOverview() {
 
             try {
                 const parksResponse = await axios.get(
-                    'https://developer.nps.gov/api/v1/parks?limit=500',
+                    'https://developer.nps.gov/api/v1/parks',
                     {
-                        headers: {
-                            'X-Api-Key': apiKey,
+                        params: {
+                            limit: 500,
+                            api_key: apiKey,
                         },
                         signal: controller.signal,
                     }
                 );
                 const campgroundsResponse = await axios.get(
-                    'https://developer.nps.gov/api/v1/campgrounds?limit=1000',
+                    'https://developer.nps.gov/api/v1/campgrounds',
                     {
-                        headers: {
-                            'X-Api-Key': apiKey,
+                        params: {
+                            limit: 1000,
+                            api_key: apiKey,
                         },
+                        signal: controller.signal,
                     }
                 );
 

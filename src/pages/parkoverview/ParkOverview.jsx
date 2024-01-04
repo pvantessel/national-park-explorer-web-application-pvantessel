@@ -4,6 +4,7 @@ import axios from 'axios';
 import ParkCard from '../../components/parkcard/ParkCard.jsx';
 import Button from '../../components/button/Button.jsx';
 import stateAbbreviations from '../../constants/stateAbbreviations.jsx';
+import parkDetails from "../parkdetails/ParkDetails.jsx";
 
 function ParkOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
@@ -28,9 +29,10 @@ function ParkOverview() {
 
             try {
                 // Haal data op vanuit het parks endpoint
-                const response = await axios.get('https://developer.nps.gov/api/v1/parks?limit=500', {
-                    headers: {
-                        'X-Api-Key': apiKey,
+                const response = await axios.get('https://developer.nps.gov/api/v1/parks', {
+                    params: {
+                        limit: 500,
+                        api_key: apiKey,
                     },
                     signal: controller.signal,
                 });
@@ -149,7 +151,7 @@ function ParkOverview() {
                             <ParkCard
                                 key={park.id}
                                 park={park}
-                                linkUrl={`/parkdetails/${park.id}`}
+                                linkUrl={`/parkdetails/${park.parkCode}`}
                                 className='park-card'
                                 classNameCard='park-card'
                                 classNameText='park-card-text'
