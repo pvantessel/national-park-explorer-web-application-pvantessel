@@ -21,14 +21,12 @@ function SignIn() {
         toggleLoading(true);
 
         try {
-            const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+            const result = await axios.post('https://api.datavortex.nl/nationalparkexplorer/users/authenticate', {
                 username: username,
                 password: password,
             });
 
-            // geef de JWT token aan de login-functie van de context mee
-            login(result.data.accessToken, result.data.user);
-            // login(result.data.accessToken);
+            login(result.data.jwt, result.data.user);
 
         } catch (e) {
             console.error(e);
@@ -85,7 +83,7 @@ function SignIn() {
                             />
                         </div>
 
-                        {error && <p className="error">De combinatie van username en wachtwoord is onjuist !</p>}
+                        {error && <p className="error">De combinatie van uw username en wachtwoord is onjuist !</p>}
 
                         <div className='signin-form-button'>
                             <Button

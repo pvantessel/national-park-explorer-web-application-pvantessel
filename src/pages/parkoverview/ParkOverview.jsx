@@ -154,7 +154,7 @@ function ParkOverview() {
                                 linkUrl={`/parkdetails/${park.parkCode}`}
                                 className='park-card'
                                 classNameCard='park-card'
-                                classNameText='park-card-text'
+                                // classNameText='park-card-text'
                             />
                         ))}
                     </div>

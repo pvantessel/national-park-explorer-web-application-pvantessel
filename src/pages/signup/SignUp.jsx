@@ -6,18 +6,20 @@ import Button from '../../components/button/Button.jsx';
 import axios from 'axios';
 
 function SignUp() {
+    const apiKey = 'nationalparkexplorer:a';
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState('');
+    const [authority, setAuthority] = useState('');
+
     const [info, setInfo] = useState('');
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const [isUsernameFocused, setIsUsernameFocused] = useState(false);
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
-    const [isRoleFocused, setIsRoleFocused] = useState(false);
+    const [isAuthorityFocused, setIsAuthorityFocused] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -25,15 +27,26 @@ function SignUp() {
         toggleLoading(true);
 
         try {
-            await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
-                username: username,
-                email: email,
-                password: password,
-                info: info,
-                role: [role],
-            });
+            await axios.post('https://api.datavortex.nl/nationalparkexplorer/users',
+                {
+                    username: username,
+                    email: email,
+                    password: password,
+                    info: info,
+                    authorities: [
+                        {
+                            authority: authority
+                        }
+                    ]
+                },
+                {
+                    headers: {
+                        'X-Api-Key': apiKey,
+                    }
+                }
+            );
             navigate('/signin');
-            console.log(`gebruiker ${username} is aangemaakt`);
+
         } catch (e) {
             console.error(e);
             toggleError(true);
@@ -41,6 +54,7 @@ function SignUp() {
         }
         toggleLoading(false);
     }
+
 
     return (
         <main className='signup-outer-container'>
@@ -114,8 +128,26 @@ function SignUp() {
                         <FormInputField
                             labelClass='signup-form-label-class-style'
                             inputClass='signup-form-input-class-style'
+                            labelName='inputAuthority'
+                            labelText='Autorisaties'
+                            inputType='text'
+                            inputName='inputAuthority'
+                            inputValue={authority.toUpperCase()}
+                            setInput={setAuthority}
+                            required={true}
+                            placeholder={isAuthorityFocused ? '' : 'bv. USER of ADMIN'}
+                            onFocus={() => setIsAuthorityFocused(true)}
+                            onBlur={() => setIsAuthorityFocused(false)}
+                            readOnly={false}
+                        />
+                    </div>
+
+                    <div className='signup-form-entry-style'>
+                        <FormInputField
+                            labelClass='signup-form-label-class-style'
+                            inputClass='signup-form-input-class-style'
                             labelName='inputInfo'
-                            labelText='Info'
+                            labelText='Informatie'
                             inputType='text'
                             inputName='inputInfo'
                             inputValue={info}
@@ -125,26 +157,8 @@ function SignUp() {
                         />
                     </div>
 
-                    <div className='signup-form-entry-style'>
-                        <FormInputField
-                            labelClass='signup-form-label-class-style'
-                            inputClass='signup-form-input-class-style'
-                            labelName='inputRole'
-                            labelText='Rol'
-                            inputType='text'
-                            inputName='inputRole'
-                            inputValue={role}
-                            setInput={setRole}
-                            required={true}
-                            placeholder={isRoleFocused ? '' : 'bv. admin of user'}
-                            onFocus={() => setIsRoleFocused(true)}
-                            onBlur={() => setIsRoleFocused(false)}
-                            readOnly={false}
-                        />
-                    </div>
-
                     {error &&
-                        <p className='error'>Dit account bestaat al. Gebruik een ander username & E-mailadres.</p>}
+                        <p className='error'>Er bestaat al een account onder deze naam.</p>}
 
                     <div className='signup-form-button'>
                         <Button

@@ -1,5 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {jwtDecode} from "jwt-decode";
 import axios from "axios";
 
 export const AuthContext = createContext({});
@@ -21,7 +22,10 @@ function AuthContextProvider({children}) {
 
         // Is er een token, haal dan de info van de gebruiker op
         if (token) {
-            void fetchUserData(token);
+            const decodedJWT = jwtDecode(token);
+            const userId = decodedJWT.sub
+
+            void fetchUserData(userId, token);
         } else {
             // Is er geen token dan de status op 'done' zetten.
             toggleIsAuth({
@@ -36,20 +40,27 @@ function AuthContextProvider({children}) {
         // Plaats de token in de Local Storage
         localStorage.setItem('token', token);
 
+        // Decoderen van het token en plaats in var decoded
+        const decodedJWT = jwtDecode(token);
+        const userId = decodedJWT.sub
+
         // geef de token en redirect-link mee aan de fetchUserData functie
-        void fetchUserData(token, `/profile`);
+        void fetchUserData(userId, token, `/profile`);
     }
 
     // Functie wordt gebruikt bij login- en het mount-effect.
-    async function fetchUserData(token, redirectUrl) {
+    async function fetchUserData(userId, token, redirectUrl) {
+
         try {
             // haal gebruikersdata op met de token en id van de user
-            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
+            const result = await axios.get(`https://api.datavortex.nl/nationalparkexplorer/users/${userId}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
             });
+
+            console.log(result);
 
             // zet de data in de state
             toggleIsAuth({
@@ -57,7 +68,8 @@ function AuthContextProvider({children}) {
                 user: {
                     username: result.data.username,
                     email: result.data.email,
-                    roles: result.data.roles,
+                    roles: result.data.authorities,
+                    info: result.data.info,
                 },
                 status: 'done',
             });

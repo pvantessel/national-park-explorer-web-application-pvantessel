@@ -6,17 +6,18 @@ import FormInputField from "../../components/forminputfield/FormInputField.jsx";
 
 function Profile() {
     const {user} = useContext(AuthContext);
-
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [authority, setAuthority] = useState('');
+    const [info, setInfo] = useState('');
 
     // Laad gebruikersinformatie bij het mounten van de component
     useEffect(() => {
         if (user) {
             setUsername(user.username || '');
             setEmail(user.email || '');
-            setRole(user.roles[0].name || '');
+            setAuthority(user.roles[0].authority || '');
+            setInfo(user.info || '');
         }
     }, [user]);
 
@@ -65,15 +66,29 @@ function Profile() {
                         <FormInputField
                             labelClass='profile-form-label-class-style'
                             inputClass='profile-form-input-class-style'
-                            labelName='inputRole'
-                            labelText='Rol'
+                            labelName='inputAuthority'
+                            labelText='Authorisaties'
                             inputType='text'
-                            inputName='inputRole'
-                            inputValue={role}
-                            setInput={setRole}
+                            inputName='inputAuthority'
+                            inputValue={authority}
+                            setInput={setAuthority}
                             readOnly={true}
                         />
                     </div>
+                    <div className='profile-form-entry-style'>
+                        <FormInputField
+                            labelClass='profile-form-label-class-style'
+                            inputClass='profile-form-input-class-style'
+                            labelName='inputInfo'
+                            labelText='Informatie'
+                            inputType='info'
+                            inputName='inputInfo'
+                            inputValue={info}
+                            setInput={setInfo}
+                            readOnly={true}
+                        />
+                    </div>
+
                 </form>
             </section>
 

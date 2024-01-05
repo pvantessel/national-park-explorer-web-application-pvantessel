@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: column;
     color: #FFFFFF;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 /* ACCOMMODATION TEXT SECTION */
@@ -105,15 +106,9 @@
     flex-shrink: 1;
     flex-grow: 0;
     color: #FFFFFF;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
     background-color: #3CBE6B;
     box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.4);
-}
-
-.accommodation-card-text {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-top: 1px solid #3CBE6B;
-    border-bottom: 1px solid #3CBE6B;
-    width: 100%;
 }
 
 .accommodation-card a,
@@ -215,8 +210,6 @@
         width: 500px;
         height: 375px;
         margin: 3em;
-    }
-    .accommodation-card-text {
         padding: 0.5em;
     }
     .select-campgrounds-page label{
@@ -268,8 +261,6 @@
         width: 600px;
         height: 450px;
         margin: 2em;
-    }
-    .accommodation-card-text {
         padding: 0.5em;
     }
     .select-campgrounds-page label{

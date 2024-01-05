@@ -26,6 +26,7 @@
 
 .signin-header-content {
     color: #FFFFFF;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 /* SIGNIN FORM */
@@ -88,6 +89,7 @@
 
 .signin-remark-content {
     color: #FFFFFF;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .signin-style-link a,
