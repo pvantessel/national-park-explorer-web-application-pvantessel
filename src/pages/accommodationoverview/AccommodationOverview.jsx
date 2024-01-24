@@ -1,3 +1,4 @@
+
 import './AccommodationOverview.css';
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
@@ -24,7 +25,7 @@ function AccommodationOverview() {
             toggleError(false);
 
             try {
-                const parksResponse = await axios.get(
+                const parksRequest = await axios.get(
                     'https://developer.nps.gov/api/v1/parks',
                     {
                         params: {
@@ -34,7 +35,7 @@ function AccommodationOverview() {
                         signal: controller.signal,
                     }
                 );
-                const campgroundsResponse = await axios.get(
+                const campgroundsRequest = await axios.get(
                     'https://developer.nps.gov/api/v1/campgrounds',
                     {
                         params: {
@@ -45,17 +46,55 @@ function AccommodationOverview() {
                     }
                 );
 
-                // Sla alleen de dataset op
-                const dataParksResponse = parksResponse.data;
-                const dataCampgroundsResponse = campgroundsResponse.data;
+                console.log('log1');
+                console.log(parksRequest);
+                console.log('log2');
+                console.log(campgroundsRequest);
 
-                // Combineer de datasets tot één object
-                const combinedData = {
-                    dataFromEndpointParks: dataParksResponse,
-                    dataFromEndpointCampgrounds: dataCampgroundsResponse,
-                };
+                const [parksResponse, campgroundsResponse] = await Promise.all([parksRequest, campgroundsRequest]);
 
+                console.log('log3');
+                console.log(parksResponse);
+                console.log('log4');
+                console.log(campgroundsResponse);
+
+                const parksData = parksResponse.data.data || [];
+                const campgroundsData = campgroundsResponse.data.data || [];
+
+                console.log('log5');
+                console.log(parksData);
+                console.log('log6');
+                console.log(campgroundsData);
+
+                // Hieronder de info verzamelen van de parken met campgrounds. Toon alle campgrounds per park.
+                // Soort join op beide tabellen.
+                const combinedData = parksData
+                    .map((park) => {
+                        const matchingCampgrounds = campgroundsData.filter((campground) => campground.parkCode === park.parkCode);
+
+                        console.log('log7');
+                        console.log(matchingCampgrounds);
+
+                        if (matchingCampgrounds.length > 0) {
+                            return {
+                                parkCode: park.parkCode,
+                                states: park.states,
+                                fullname: park.fullName,
+                                campgrounds: matchingCampgrounds.map((campground) => ({
+                                    name: campground.name,
+                                })),
+                            };
+                        } else {
+                            // Geen campgrounds gevonden, dus over slaan
+                            return null;
+                        }
+                    })
+                    // Haal parken eruit waar geen campgrounds zijn gevonden
+                    .filter((item) => item !== null);
+
+                console.log('log5');
                 console.log(combinedData);
+
 
                 // Map door de parken en controleer of een afbeeldings-URL beschikbaar is
                 const updatedCampgrounds = campgroundsResponse.data.data.map((campground) => {
@@ -64,6 +103,7 @@ function AccommodationOverview() {
                 });
 
                 setCampgrounds(updatedCampgrounds);
+                console.log('log6');
                 console.log(campgroundsResponse.data);
 
             } catch (error) {
@@ -99,13 +139,13 @@ function AccommodationOverview() {
         <main className='accommodation-outer-container'>
             <section className='accommodation-header'>
                 <div className='accommodation-header-content'>
-                    <h1>Accommodaties</h1>
+                    <h1>Campings & Lodges</h1>
                 </div>
             </section>
 
             <section className='accommodation-text-section' ref={topRef}>
                 <div className='accommodation-text-section-content'>
-                    <h3>Ben je van plan om ook te blijven slapen?</h3>
+                    <h3>Op zoek naar een plek om te overnachten?</h3>
                     <h5>Nog wat text.</h5>
                 </div>
             </section>
@@ -142,7 +182,7 @@ function AccommodationOverview() {
                             <AccommodationCard
                                 key={campground.id}
                                 campground={campground}
-                                linkUrl='/profile'
+                                linkUrl='/'
                                 classNameCard='accommodation-card'
                                 classNameText='accommodation-card-text'
                             />

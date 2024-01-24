@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom';
 import noImageAvailable from '../../assets/images/noImageAvailable.jpg';
 import stateAbbreviations from "../../constants/stateAbbreviations.jsx";
 
-// eslint-disable-next-line react/prop-types
-function ParkCard({classNameCard, classNameText, linkUrl, park}) {
+function ParkCard({classNameCard, linkUrl, park}) {
 
     const backgroundImg = park.imageUrl || noImageAvailable;
 
     return (
         <div className={classNameCard} style={{backgroundImage: `url(${backgroundImg})`}}>
-            <div className={classNameText}>
+            <div>
                 <Link to={linkUrl}><h2>{park.fullName}</h2></Link>
                 {park.states && (<h4>( {stateAbbreviations[park.states.split(',')[0]] || 'Unknown'} )</h4>)}
             </div>
@@ -20,6 +19,9 @@ function ParkCard({classNameCard, classNameText, linkUrl, park}) {
 
 ParkCard.propTypes = {
     park: PropTypes.object.isRequired,
+    linkUrl: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    classNameCard: PropTypes.string.isRequired,
 }
 
 export default ParkCard;

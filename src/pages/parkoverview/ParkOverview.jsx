@@ -4,7 +4,6 @@ import axios from 'axios';
 import ParkCard from '../../components/parkcard/ParkCard.jsx';
 import Button from '../../components/button/Button.jsx';
 import stateAbbreviations from '../../constants/stateAbbreviations.jsx';
-import parkDetails from "../parkdetails/ParkDetails.jsx";
 
 function ParkOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
@@ -37,13 +36,19 @@ function ParkOverview() {
                     signal: controller.signal,
                 });
 
+                console.log(response);
+
                 // Map door de parken en controleer of een afbeeldings-URL beschikbaar is
                 const updatedParks = response.data.data.map((park) => {
                     const imageUrl = park.images && park.images.length > 0 ? park.images[0].url : null;
                     return {...park, imageUrl};
                 });
 
+                console.log(updatedParks);
+
                 setParks(updatedParks);
+
+                console.log(parks);
 
                 //Update de states state met een geordende lijst van unieke staten die we halen uit de parkgegevens.
                 const uniqueStates = Array.from(new Set(updatedParks.map((park) => park.states.split(',')[0]))).sort();
@@ -91,7 +96,7 @@ function ParkOverview() {
         <main className='parkoverview-outer-container'>
             <section className='parkoverview-header'>
                 <div className='parkoverview-header-content'>
-                    <h1>De Nationale Parken van de Verenigde Staten</h1>
+                    <h1>De Nationale Parken</h1>
                 </div>
             </section>
 
@@ -102,37 +107,18 @@ function ParkOverview() {
                     </h3>
                     <h5>
                         In de Verenigde Staten zijn honderden verschillende locaties geregistreerd als National Park.
-                        Het zijn echter niet allemaal die enorme natuurgebieden, zoals bv. een Yellowstone, maar er
+                        Het zijn echter niet allemaal van die enorme natuurgebieden, zoals bv. een Yellowstone, maar er
                         staan ook historische monumenten op de lijst en zelfs een paar van de mooiste hiking trails.
                     </h5>
                     <h5>
                         Op deze pagina vind je de complete lijst en kan je filteren op locaties die gelegen zijn in
-                        een van de Verenigde Staten of op een van de eilanden die behoren tot de territoriale gebieden
+                        een specifieke staat of op een van de eilanden die behoren tot de territoriale gebieden
                         van de Verenigde Staten.
                     </h5>
                 </div>
             </section>
 
             <section className='parkoverview-filter-and-buttons'>
-                <div>
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage - 1)}
-                        buttonState={currentPage === 1}
-                        buttonClass='styleButton'
-                    >
-                        Vorige
-                    </Button>
-
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage + 1)}
-                        buttonState={indexOfLastPark >= parks.length}
-                        buttonClass='styleButton'
-                    >
-                        Volgende
-                    </Button>
-                </div>
                 {/*Dropdown filter om per state te filteren*/}
                 <select onChange={handleStateChange} className='parkoverview-style-filter-menu'>
                     <option value="">Alle gebieden</option>
@@ -152,9 +138,7 @@ function ParkOverview() {
                                 key={park.id}
                                 park={park}
                                 linkUrl={`/parkdetails/${park.parkCode}`}
-                                className='park-card'
                                 classNameCard='park-card'
-                                // classNameText='park-card-text'
                             />
                         ))}
                     </div>
