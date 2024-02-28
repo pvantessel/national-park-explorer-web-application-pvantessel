@@ -4,12 +4,13 @@ import axios from 'axios';
 import ParkCard from '../../components/parkcard/ParkCard.jsx';
 import Button from '../../components/button/Button.jsx';
 import stateAbbreviations from '../../constants/stateAbbreviations.jsx';
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function ParkOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
     const [parks, setParks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [parksPerPage, setParksPerPage] = useState(20);
+    const [parksPerPage, setParksPerPage] = useState(10);
     const [selectedState, setSelectedState] = useState('');
     const [states, setStates] = useState([]);
     const indexOfLastPark = currentPage * parksPerPage;
@@ -94,6 +95,8 @@ function ParkOverview() {
 
     return (
         <main className='parkoverview-outer-container'>
+            <ScrollToTopOnMount/>
+
             <section className='parkoverview-header'>
                 <div className='parkoverview-header-content'>
                     <h1>De Nationale Parken</h1>
@@ -130,7 +133,7 @@ function ParkOverview() {
 
             <section className='park-cards-outer-container'>
 
-                {Object.keys(currentParks).length > 0 &&
+                {currentParks.length > 0 &&
 
                     <div className='park-cards-inner-container'>
                         {currentParks.map((park) => (
@@ -143,8 +146,9 @@ function ParkOverview() {
                         ))}
                     </div>
                 }
+
                 {loading && <p>Loading...</p>}
-                {Object.keys(currentParks).length === 0 && error &&
+                {currentParks.length === 0 && error &&
                     <p>Er ging iets mis bij het ophalen van dit park...</p>}
 
             </section>
@@ -176,6 +180,7 @@ function ParkOverview() {
                         onChange={handleParksPerPageChange}
                         value={parksPerPage}
                     >
+                        <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={50}>50</option>
                     </select>

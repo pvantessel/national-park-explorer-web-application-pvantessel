@@ -1,26 +1,22 @@
+import React, {useEffect, useRef, useState} from 'react';
+import axios from 'axios';
+
 import './ActivitiesOverview.css';
-import {useEffect, useRef, useState} from "react";
-import axios from "axios";
-import ActivitiesCard from "../../components/activitiescard/ActivitiesCard.jsx";
-import Button from "../../components/button/Button.jsx";
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 import stateAbbreviations from "../../constants/stateAbbreviations.jsx";
 
 function ActivitiesOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
-    const [thingsToDo, setThingsToDo] = useState([]);
-    const [activityTitles, setActivityTitles] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [activitiesPerPage, setActivitiesPerPage] = useState(20);
-    const indexOfLastActivity = currentPage * activitiesPerPage;
+
+    const [activities, setActivities] = useState([]);
+    const [selectedActivity, setSelectedActivity] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const topRef = useRef();
-    const [selectedActivityGroup, setSelectedActivityGroup] = useState('');
-    const [selectedParkName, setSelectedParkName] = useState('');
-    const [selectedStateName, setSelectedStateName] = useState('');
-    const [filteredParkNames, setFilteredParkNames] = useState([]);
-    const [filteredActivityGroups, setFilteredActivityGroups] = useState([]);
-    const [filteredStateNames, setFilteredStateNames] = useState([]);
+    const parkListRef = useRef(null);
+
+    const [uniqueStates, setUniqueStates] = useState([]);
+    const [filteredParks, setFilteredParks] = useState([]);
+    const [selectedState, setSelectedState] = useState('');
 
     useEffect(() => {
         const controller = new AbortController();
@@ -30,87 +26,33 @@ function ActivitiesOverview() {
             setError(null);
 
             try {
-                const requestThingsToDo = await axios.get('https://developer.nps.gov/api/v1/thingstodo', {
+                const requestActivities = await axios.get('https://developer.nps.gov/api/v1/activities/parks', {
                     params: {
-                        limit: 5000,
+                        limit: 100,
                         api_key: apiKey,
                     },
                     signal: controller.signal,
                 });
 
-                console.log('log0 requestThingsToDo');
-                console.log(requestThingsToDo);
+                console.log('log 1: requestActivities');
+                console.log(requestActivities);
 
-                // Voeg een aantal zaken toe aan activity
-                const updatedActivities = requestThingsToDo.data.data.map(activity => {
-                    const imageUrl =
-                        activity.images && activity.images.length > 0 ? activity.images[0].url : null;
-                    const activityGroup =
-                        activity.activities && activity.activities.length > 0 ? activity.activities[0].name : '';
-                    const parkName =
-                        activity.relatedParks && activity.relatedParks.length > 0 ? activity.relatedParks[0].fullName : '';
-                    const stateName =
-                        activity.relatedParks && activity.relatedParks.length > 0 ? activity.relatedParks[0].states : '';
-                    return { ...activity, imageUrl, activityGroup, parkName, stateName };
-                });
+                const activityList = requestActivities.data.data.map((activityItem) => ({
+                    id: activityItem.id,
+                    name: activityItem.name,
+                    parks: activityItem.parks,
+                }));
 
-                console.log('log1 updatedActivities');
-                console.log(updatedActivities);
+                console.log('log 2: activityList');
+                console.log(activityList);
 
-                setThingsToDo(updatedActivities);
-
-                // Haal de titels eruit en sorteer de lijst op alfabet
-                const titles = requestThingsToDo.data.data.map((activityData) => activityData.title).sort();
-
-                setActivityTitles(titles);
-
-                // Genereer een unieke lijst van parkNames gebaseerd op de geselecteerde activityGroup of stateName
-                const parkNamesFilter = Array.from(
-                    new Set(
-                        updatedActivities
-                            .filter((activity) => selectedActivityGroup ? activity.activityGroup === selectedActivityGroup : true)
-                            .filter((activity) => selectedStateName ? activity.stateName === selectedStateName : true)
-                            .map((activity) => activity.parkName))
-                ).sort();
-
-                setFilteredParkNames(parkNamesFilter);
-
-                console.log('log2 parkNamesFilter');
-                console.log(parkNamesFilter);
-
-                // Genereer een unieke lijst van activityGroups gebaseerd op de geselecteerde parkName of stateName
-                const activityGroupsFilter = Array.from(
-                    new Set(
-                        updatedActivities
-                            .filter((activity) => selectedParkName ? activity.parkName === selectedParkName : true)
-                            .filter((activity) => selectedStateName ? activity.stateName === selectedStateName : true)
-                            .map((activity) => activity.activityGroup)
-                    )
-                ).sort();
-                setFilteredActivityGroups(activityGroupsFilter);
-
-                console.log('log3 activityGroupsFilter');
-                console.log(activityGroupsFilter);
-
-                // Genereer een unieke lijst van stateNames gebaseerd op de geselecteerde parkName of activityGroup
-                const stateNameFilter = Array.from(
-                    new Set(
-                        updatedActivities
-                            .filter((activity) => selectedParkName ? activity.parkName === selectedParkName : true)
-                            .filter((activity) => selectedActivityGroup ? activity.activityGroup === selectedActivityGroup : true)
-                            .flatMap((activity) => activity.stateName.split(',')) // Splits staatscodes gescheiden door komma's
-                            .map((stateCode) => stateCode.trim().toUpperCase())  // Gebruik trim() en toUpperCase()
-                            .map((stateCode) => stateAbbreviations[stateCode] || stateCode) // Vervang staatscodes door volledige namen
-                    )
-                ).filter(Boolean).sort();
-                setFilteredStateNames(stateNameFilter);
-
-                console.log('log4 stateNameFilter');
-                console.log(stateNameFilter);
+                setActivities(activityList);
+                console.log('log 3: activities');
+                console.log(activities);
 
             } catch (e) {
                 console.error(e);
-                setError("Er is een fout opgetreden bij het ophalen van activiteiten.");
+                setError('Er is een fout opgetreden bij het ophalen van de activiteiten.');
             } finally {
                 setLoading(false);
             }
@@ -119,184 +61,154 @@ function ActivitiesOverview() {
         void fetchActivities();
 
         return function cleanup() {
-            controller.abort(); // <--- request annuleren
+            controller.abort();
             console.log('unmount effect is triggered');
+        };
+    }, []);
+
+    const handleActivityClick = (selectedActivity) => {
+        setSelectedActivity(selectedActivity);
+        setSelectedState('');
+        const states = selectedActivity.parks.reduce((acc, park) => {
+            if (park.states) {
+                acc.push(...park.states.split(','));
+            }
+            return acc;
+        }, []);
+        const uniqueStates = Array.from(new Set(states)).filter(Boolean).sort();
+        setUniqueStates(uniqueStates);
+        setFilteredParks(selectedActivity.parks);
+
+        // Scroll naar de lijst met parken wanneer een activiteit wordt geselecteerd
+        if (parkListRef.current) {
+            setTimeout(() => {
+                parkListRef.current.scrollIntoView({behavior: 'smooth'});
+            }, 0);
         }
-    }, [selectedActivityGroup, selectedParkName, selectedStateName]);
+    };
 
+    // Utility function to get the full state name from abbreviation
+    function getFullStateName(abbreviation) {
+        return stateAbbreviations[abbreviation] || abbreviation;
+    }
 
-    // Deze functie wordt gebruikt om de huidige pagina bij te werken in de state en ook om het scherm automatisch
-    // naar een bepaalde plek (topRef) te laten scrollen wanneer naar een pagina wordt genavigeerd.
-    function paginate(pageNumber) {
-        setCurrentPage(pageNumber);
+    const handleStateChange = (e) => {
+        const newState = e.target.value;
+        setSelectedState(newState);
 
-        if (topRef.current) {
-            topRef.current.scrollIntoView({behavior: 'auto'});
+        // const fullStateName = getFullStateName(newState);
+
+        if (newState) {
+            const parksInSelectedState = selectedActivity.parks.filter((park) =>
+                park.states.split(',').includes(newState)
+            );
+            setFilteredParks(parksInSelectedState);
+        } else {
+            setFilteredParks(selectedActivity.parks);
         }
-    }
-
-    // Deze functie wordt gebruikt om het aantal parken per pagina aan te kunnen passen (20 of 50)
-    function handleActivitiesPerPageChange(event) {
-        setActivitiesPerPage(parseInt(event.target.value, 10));
-        setCurrentPage(1);
-    }
-
-    // Pas de state aan met de geselecteerde activityGroup waarde
-    function handleActivityGroupChange(event) {
-        setSelectedActivityGroup(event.target.value);
-    }
-
-    // Pas de state aan met de geselecteerde parkName waarde
-    function handleParkNameChange(event) {
-        setSelectedParkName(event.target.value);
-        setCurrentPage(1); // Reset de pagina wanneer parknaam verandert
-    }
-
-    // Pas de state aan met de geselecteerde stateName waarde
-    function handleStateNameChange(event) {
-        console.log('Selected State Name:', event.target.value); // Add this log
-
-        setSelectedStateName(event.target.value);
-        setCurrentPage(1); // Reset de pagina wanneer parknaam verandert
-    }
+    };
 
     return (
         <main className='activitiesoverview-outer-container'>
+            <ScrollToTopOnMount/>
+
             <section className='activitiesoverview-header'>
                 <div className='activitiesoverview-header-content'>
                     <h1>Activiteiten</h1>
                 </div>
             </section>
 
-            <section className='activitiesoverview-text-section' ref={topRef}>
+            <section className='activitiesoverview-text-section'>
                 <div className='activitiesoverview-text-section-content'>
-                    <h3>
-                        In voor een leuke activiteit?
-                    </h3>
-                    <h5>
-                        Nog wat tekst hier.
+                    <h3>Op zoek naar een leuke activiteit?</h3>
+                    <h5>Als je op bezoek bent in een van de mooie parken wil je natuurlijk ook wel wat doen of zien.
+                        Of het nou iets actiefs is, zoals hiking of canyoneering of juist iets heel relaxed zoals een
+                        museum bezoek of kijken naar de aanwezige wildlife. Alles is mogelijk. Hieronder vind je een
+                        overzicht van alle activiteiten. Kies er een uit en je krijgt een lijst van parken waar deze
+                        activiteit beschikbaar is.
                     </h5>
                 </div>
             </section>
 
-            <section className='activitiesoverview-filter-and-buttons'>
+            <section className='activityGroupListView-outer' ref={parkListRef}>
 
-                {/* Dropdown-filter voor activityGroup */}
-                <select
-                    id='activityGroup'
-                    onChange={handleActivityGroupChange}
-                    value={selectedActivityGroup}
-                    className='activitiesoverview-style-filter-menu'
-                >
-                    <option value="">Alle activiteiten</option>
-                    {filteredActivityGroups.map((activityGroup, index) => (
-                        <option key={index} value={activityGroup}>
-                            {activityGroup}
-                        </option>
-                    ))}
-                </select>
-
-                {/* Dropdown-filter voor parkName */}
-                <select
-                    id='parkName'
-                    onChange={handleParkNameChange}
-                    value={selectedParkName}
-                    className='activitiesoverview-style-filter-menu'
-                >
-                    <option value=''>Alle parken</option>
-                    {filteredParkNames.map((parkName, index) => (
-                        <option key={index} value={parkName}>
-                            {parkName}
-                        </option>
-                    ))}
-                </select>
-
-                {/* Dropdown-filter voor stateName */}
-                <select
-                    id='stateName'
-                    onChange={handleStateNameChange}
-                    value={selectedStateName}
-                    className='activitiesoverview-style-filter-menu'
-                >
-                    <option value=''>Alle gebieden</option>
-                    {filteredStateNames.map((stateName, index) => (
-                        <option key={index} value={stateName}>
-                            {stateName}
-                        </option>
-                    ))}
-                </select>
-
-            </section>
-
-            <section className='activities-cards-outer-container'>
-
-                {loading && <p>Loading...</p>}
-                {activityTitles.length === 0 && !loading && error &&
-                    <p>Er ging iets mis bij het ophalen van deze activiteit...</p>}
-
-                {activityTitles.length > 0 && (
-                    <div className='activities-cards-inner-container'>
-                        {activityTitles
-                            .filter(title =>
-                                selectedActivityGroup
-                                    ? thingsToDo.find(activity => activity.title === title)?.activityGroup ===
-                                    selectedActivityGroup
-                                    : true
-                            )
-                            .filter((title) =>
-                                selectedParkName
-                                    ? thingsToDo.find((activity) => activity.title === title)?.parkName ===
-                                    selectedParkName
-                                    : true
-                            )
-                            .slice((currentPage - 1) * activitiesPerPage, indexOfLastActivity)
-                            .map((title, index) => (
-                                <ActivitiesCard
-                                    key={index}
-                                    activity={title}
-                                    linkUrl='/'
-                                    imageUrl={
-                                        thingsToDo.find(activity => activity.title === title)?.imageUrl
-                                    }
-                                    classNameCard='activities-card'
-                                />
-                            ))}
+                {activities.length > 0 && (
+                    <div className='activityGroupListView-inner'>
+                        {activities.map((activity) => (
+                            <div
+                                className={`activityGroupListItem ${selectedActivity === activity ? 'active' : ''}`}
+                                key={activity.id}
+                                onClick={() => handleActivityClick(activity)}
+                            >
+                                <h4>
+                                    <a href='#'>{activity.name}</a>
+                                </h4>
+                            </div>
+                        ))}
                     </div>
                 )}
+
+                {loading && <p>Loading...</p>}
+                {activities.length === 0 && !loading && error &&
+                    <p>Er ging iets mis bij het ophalen van de activiteiten...</p>}
+
             </section>
 
-            <section className='activitiesoverview-filter-and-buttons'>
-                <div>
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage - 1)}
-                        buttonState={currentPage === 1}
-                        buttonClass='styleButton'
-                    >
-                        Vorige
-                    </Button>
+            {selectedActivity && (
+                <section className='activityParkList'>
+                    <div className='activityParkList-header'>
+                        <div className='activityParkList-header-content'>
+                            <h3>{selectedActivity.name}</h3>
+                            <h5>Je vindt activiteit <span style={{color: '#3CBE6B'}}>{selectedActivity.name}</span> in
+                                de onderstaande Nationale Parken. Gebruik onderstaand filter om de parken weer te geven
+                                per geselecteerde staat. Meer informatie over de activiteit vind je op de website van het park.
+                            </h5>
+                        </div>
+                    </div>
 
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage + 1)}
-                        buttonState={indexOfLastActivity >= activityTitles.length}
-                        buttonClass='styleButton'
-                    >
-                        Volgende
-                    </Button>
-                </div>
-                <div className='select-activities-page'>
-                    <label htmlFor="activitiesPerPage">Aantal activiteiten per pagina: </label>
-                    <select
-                        id="activitiesPerPage"
-                        onChange={handleActivitiesPerPageChange}
-                        value={activitiesPerPage}
-                    >
-                        <option value={20}>20</option>
-                        <option value={50}>50</option>
-                    </select>
-                </div>
-            </section>
+                    <div>
+                        <select
+                            id="stateFilter"
+                            value={selectedState}
+                            onChange={(e) => handleStateChange(e)}
+                            className='activityParkList-style-filter-menu'
+                        >
+                            <option value="">Alle gebieden</option>
+                            {uniqueStates.map((stateAbbreviation) => (
+                                <option key={stateAbbreviation} value={stateAbbreviation}>
+                                    {getFullStateName(stateAbbreviation)}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {filteredParks.length > 0 && (
+                        <div className="activityParkList-items">
+                            <h5 className="activityParkList-link">
+                                <ul className="activityParkList-StyleUl">
+                                    {filteredParks.map((park) => (
+                                        <li key={park.fullName}>
+                                            <a
+                                                className="activityParkList-StyleLi"
+                                                href={park.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {park.fullName}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </h5>
+                        </div>
+                    )}
+
+                    {loading && <p>Loading...</p>}
+                    {filteredParks.length === 0 && !loading && error &&
+                        <p>Er ging iets mis bij het ophalen van de parken...</p>}
+
+                </section>
+            )}
 
         </main>
     );

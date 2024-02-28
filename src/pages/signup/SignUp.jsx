@@ -4,6 +4,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import FormInputField from '../../components/forminputfield/FormInputField.jsx';
 import Button from '../../components/button/Button.jsx';
 import axios from 'axios';
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function SignUp() {
     const apiKey = 'nationalparkexplorer:a';
@@ -58,6 +59,8 @@ function SignUp() {
 
     return (
         <main className='signup-outer-container'>
+            <ScrollToTopOnMount />
+
             <section className='signup-header'>
                 <div className='signup-header-content'>
                     <h1>Registreren</h1>

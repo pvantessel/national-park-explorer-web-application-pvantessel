@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {AuthContext} from '../../context/AuthContext.jsx';
 import FormInputField from "../../components/forminputfield/FormInputField.jsx";
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function Profile() {
     const {user} = useContext(AuthContext);
@@ -23,6 +24,7 @@ function Profile() {
 
     return (
         <main className='profile-outer-container'>
+            <ScrollToTopOnMount />
 
             <section className='profile-header'>
                 <div className='profile-header-content'>

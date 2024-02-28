@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import Button from "../../components/button/Button.jsx";
 import AccommodationCard from "../../components/accommodationcard/AccommodationCard.jsx";
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function AccommodationOverview() {
     const apiKey = 'roL3fF3OPDvIsDg5Wrj190JFA4XOUV3OQLGfvifs';
@@ -137,6 +138,8 @@ function AccommodationOverview() {
 
     return (
         <main className='accommodation-outer-container'>
+            <ScrollToTopOnMount />
+
             <section className='accommodation-header'>
                 <div className='accommodation-header-content'>
                     <h1>Campings & Lodges</h1>

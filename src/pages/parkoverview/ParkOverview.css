@@ -246,7 +246,7 @@
         line-height: 1.25em;
     }
     .parkoverview-text-section-content {
-        max-width: 60%;
+        max-width: 70%;
     }
     .parkoverview-text-section-content h3 {
         margin: 1em 0;
@@ -264,7 +264,7 @@
     }
     .park-cards-inner-container {
         padding: 0 1em;
-        gap: 2em;
+        gap: 3em;
         margin: 0 1.5em;
     }
     .park-card {
@@ -309,7 +309,7 @@
         margin-bottom: 1em;
     }
     .parkoverview-filter-and-buttons {
-        margin: 2.5em 0;
+        margin: 2em 0;
     }
     .parkoverview-style-filter-menu {
         width: 175px;
@@ -354,7 +354,7 @@
         line-height: 1.75em;
     }
     .parkoverview-text-section-content {
-        max-width: 50%;
+        max-width: 60%;
     }
     .parkoverview-text-section-content h3 {
         margin: 1em 0;
@@ -363,10 +363,10 @@
         margin-bottom: 1em;
     }
     .parkoverview-filter-and-buttons {
-        margin: 2.5em 0;
+        margin: 2em 0;
     }
     .parkoverview-style-filter-menu {
-        width: 200px;
+        width: 225px;
         font-size: 1.25em;
         padding: 0.5em 1em;
     }
@@ -408,7 +408,7 @@
         line-height: 2em;
     }
     .parkoverview-text-section-content {
-        max-width: 40%;
+        max-width: 60%;
     }
     .parkoverview-text-section-content h3 {
         margin: 1em 0;
@@ -420,8 +420,8 @@
         margin: 3em 0;
     }
     .parkoverview-style-filter-menu {
-        width: 200px;
-        font-size: 1.25em;
+        width: 300px;
+        font-size: 1.50em;
         padding: 0.5em 1em;
     }
     .park-cards-inner-container {

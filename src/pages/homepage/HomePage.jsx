@@ -4,10 +4,13 @@ import activitiesImage from '../../assets/images/activitiesImage1.jpg';
 import campgroundImage from '../../assets/images/campgroundImage1.jpg';
 import multimediaImage from '../../assets/images/multimediaImage1.jpg';
 import nationalParkImage from '../../assets/images/nationalParkImage1.jpg';
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function HomePage() {
     return (
         <main className='homepage-outer-container'>
+            <ScrollToTopOnMount />
+
             <section className='homepage-header'>
                 <div className='homepage-header-content'>
                     <h1>Ben je van plan om de Nationale Parken in de Verenigde Staten te gaan bezoeken?</h1>

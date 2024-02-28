@@ -5,6 +5,7 @@ import {AuthContext} from '../../context/AuthContext.jsx';
 import FormInputField from '../../components/forminputfield/FormInputField.jsx';
 import axios from 'axios';
 import Button from '../../components/button/Button.jsx';
+import ScrollToTopOnMount from "../../components/scrolltotoponmount/ScrollToTopOnMount.jsx";
 
 function SignIn() {
     const {login} = useContext(AuthContext);
@@ -37,6 +38,8 @@ function SignIn() {
 
     return (
         <main className='signin-outer-container'>
+            <ScrollToTopOnMount />
+
                 <section className='signin-header'>
                     <div className='signin-header-content'>
                         <h1>Inloggen</h1>
