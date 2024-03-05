@@ -60,8 +60,6 @@ function AuthContextProvider({children}) {
                 },
             });
 
-            console.log(result);
-
             // zet de data in de state
             toggleIsAuth({
                 isAuth: true,

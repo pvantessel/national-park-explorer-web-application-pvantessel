@@ -318,7 +318,7 @@
         margin: 1em;
     }
     .signup-form-style {
-        width: 40%;
+        min-width: 60%;
         margin: 0;
         padding: 5em 0 3em 0;
     }

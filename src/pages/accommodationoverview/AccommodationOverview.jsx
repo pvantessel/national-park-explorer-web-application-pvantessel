@@ -148,31 +148,13 @@ function AccommodationOverview() {
 
             <section className='accommodation-text-section' ref={topRef}>
                 <div className='accommodation-text-section-content'>
-                    <h3>Op zoek naar een plek om te overnachten?</h3>
-                    <h5>Nog wat text.</h5>
+                    <h3>
+                        Op zoek naar een plek om te overnachten?
+                    </h3>
+                    <h5>
+                        Nog wat text.
+                    </h5>
                 </div>
-            </section>
-
-            <section className='accommodation-filter-and-buttons'>
-                <div>
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage - 1)}
-                        buttonState={currentPage === 1}
-                        buttonClass='styleButton'
-                    >
-                        Vorige
-                    </Button>
-
-                    <Button
-                        buttonType='button'
-                        clickHandler={() => paginate(currentPage + 1)}
-                        buttonClass='styleButton'
-                    >
-                        Volgende
-                    </Button>
-                </div>
-
             </section>
 
             <section className='accommodation-cards-outer-container'>
@@ -225,6 +207,7 @@ function AccommodationOverview() {
                         onChange={handleCampgroundsPerPageChange}
                         value={campgroundsPerPage}
                     >
+                        <option value={10}>10</option>
                         <option value={20}>20</option>
                         <option value={50}>50</option>
                     </select>

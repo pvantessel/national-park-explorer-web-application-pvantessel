@@ -54,7 +54,6 @@
     flex-direction: column;
 }
 
-
 /* ACCOMMODATION FILTER BUTTON */
 
 .accommodation-filter-and-buttons {
@@ -62,7 +61,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: baseline;
-    margin: 40px 0;
 }
 
 .accommodation-style-filter-menu {
@@ -86,7 +84,7 @@
 .accommodation-cards-inner-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     flex-basis: 100vw;
     flex-wrap: wrap;
     flex-shrink: 1;
@@ -236,7 +234,7 @@
         line-height: 2em;
     }
     .accommodation-text-section-content {
-        max-width: 40%;
+        max-width: 60%;
     }
     .accommodation-text-section-content h3 {
         margin: 1em 0;
@@ -269,5 +267,4 @@
     .select-campgrounds-page select{
         font-size: 1.25em;
     }
-
 }
