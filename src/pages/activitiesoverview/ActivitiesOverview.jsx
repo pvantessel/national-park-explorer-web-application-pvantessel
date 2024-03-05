@@ -171,10 +171,13 @@ function ActivitiesOverview() {
         <section className='activitiesoverview-text-section' ref={topRef}>
             <div className='activitiesoverview-text-section-content'>
                 <h3>
-                    In voor een leuke activiteit?
+                    Op zoek naar een leuke activiteit?
                 </h3>
                 <h5>
-                    Nog wat tekst hier.
+                    Op deze pagina vind je een compleet overzicht van de meer dan 3000 !! activiteiten die
+                    in de Nationale Parken te ondernemen zijn. Dus ben je op zoek naar iets sportiefs of juist
+                    iets cultureels of wil je gewoon lekker genieten van de prachtige natuur die de Verenigde Staten
+                    ons te bieden heeft, ga hieronder dan vooral op zoek naar jouw favoriete activiteit(en).
                 </h5>
             </div>
         </section>

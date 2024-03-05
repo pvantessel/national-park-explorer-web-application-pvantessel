@@ -16,7 +16,7 @@ function HomePage() {
                     <h1>Ben je van plan om de Nationale Parken in de Verenigde Staten te gaan bezoeken?</h1>
                     <h4>Dan is dit de website waar je moet wezen. Je vindt hier veel informatie over de diverse parken,
                         zoals de accommodaties waar je kan verblijven, de activiteiten die je er kan ondernemen,
-                        maar ook een overzicht van de voorzieningen die in de parken aanwezig zijn.</h4>
+                        maar ook een overzicht van de voorzieningen en natuurlijk veel mooie foto's.</h4>
                     <h4>Genoeg informatie dus om je bezoek aan deze geweldige parken te kunnen gaan plannen.</h4>
                 </div>
             </section>

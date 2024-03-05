@@ -10,7 +10,6 @@
     min-height: 100vh;
 }
 
-
 /* ACTIVITIES-OVERVIEW HEADER */
 
 .activitiesoverview-header {
@@ -31,7 +30,6 @@
     color: #FFFFFF;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
-
 
 /* ACTIVITIES-OVERVIEW TEXT SECTION */
 
@@ -54,7 +52,6 @@
     flex-direction: column;
 }
 
-
 /* ACTIVITIES-OVERVIEW FILTER BUTTON */
 
 .activitiesoverview-filter-and-buttons {
@@ -62,7 +59,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: baseline;
-    margin: 40px 0;
 }
 
 .activitiesoverview-style-filter-menu {
@@ -88,7 +84,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-basis: 100vw;
+    flex-basis: auto;
+    max-width: 100%;
     flex-wrap: wrap;
     flex-shrink: 1;
     flex-grow: 1;
@@ -123,41 +120,268 @@
     color: #FB7302;
 }
 
-
-
-
 /* ACTIVITIES-OVERVIEW MEDIA QUERIES */
 
 /* Telefoon in portrait mode */
 @media screen and (max-width: 576px) {
-
+    .activitiesoverview-header-content {
+        padding: 8em 1em;
+        flex-basis: 95%;
+        margin: 1em;
+    }
+    .activitiesoverview-header-content h1 {
+        margin: 1em;
+    }
+    .activitiesoverview-text-section {
+        margin: 2em 0 1em 0;
+        padding: 1em 2em;
+        line-height: 1em;
+    }
+    .activitiesoverview-text-section-content {
+        max-width: 85%;
+    }
+    .activitiesoverview-text-section-content h3 {
+        margin: 0.75em 0;
+    }
+    .activitiesoverview-text-section-content h5 {
+        margin-bottom: 0.75em;
+    }
+    .activitiesoverview-filter-and-buttons {
+        margin: 1em 0;
+    }
+    .activitiesoverview-style-filter-menu {
+        width: 100px;
+        font-size: 0.5em;
+        padding: 1em 1em;
+    }
+    .activities-cards-inner-container {
+        padding: 0 0.75em;
+        gap: 0.5em;
+        margin: 0 0.5em;
+    }
+    .activities-card {
+        width: 300px;
+        height: 225px;
+        margin: 0.75em;
+        padding: 0.25em;
+    }
+    .select-activities-page label{
+        font-size: 0.5em;
+    }
+    .select-activities-page select {
+        font-size: 0.5em;
+    }
 }
 
 /* Telefoon in landscape mode */
 @media screen and (min-width: 576px) and (max-width: 767px) {
-
+    .activitiesoverview-header-content {
+        padding: 3em 1em;
+        flex-basis: 70%;
+        margin: 1em;
+    }
+    .activitiesoverview-header-content h1 {
+        margin: 1em;
+    }
+    .activitiesoverview-text-section {
+        margin: 3em 0 1.5em 0;
+        padding: 1em 2em;
+        line-height: 1.25em;
+    }
+    .activitiesoverview-text-section-content {
+        max-width: 70%;
+    }
+    .activitiesoverview-text-section-content h3 {
+        margin: 0.75em 0;
+    }
+    .activitiesoverview-text-section-content h5 {
+        margin-bottom: 0.75em;
+    }
+    .activitiesoverview-filter-and-buttons {
+        margin: 1.5em 0;
+    }
+    .activitiesoverview-style-filter-menu {
+        width: 150px;
+        font-size: 0.75em;
+        padding: 0.5em 1em;
+    }
+    .activities-cards-inner-container {
+        padding: 0 0.75em;
+        gap: 0.5em;
+        margin: 0 1em;
+    }
+    .activities-card {
+        width: 280px;
+        height: 210px;
+        margin: 0.5em;
+        padding: 0.25em;
+    }
+    .select-activities-page label{
+        font-size: 0.75em;
+    }
+    .select-activities-page select {
+        font-size: 0.75em;
+    }
 }
 
 /* Tablets */
 @media screen and (min-width: 768px) and (max-width: 991px) {
-
+    .activitiesoverview-header-content {
+        padding: 7em 1em;
+        flex-basis: 70%;
+        margin: 1em;
+    }
+    .activitiesoverview-header-content h1 {
+        margin: 1em;
+    }
+    .activitiesoverview-text-section {
+        margin: 4em 0 1.5em 0;
+        padding: 1em 2em;
+        line-height: 1.25em;
+    }
+    .activitiesoverview-text-section-content {
+        max-width: 70%;
+    }
+    .activitiesoverview-text-section-content h3 {
+        margin: 1em 0;
+    }
+    .activitiesoverview-text-section-content h5 {
+        margin-bottom: 1em;
+    }
+    .activitiesoverview-filter-and-buttons {
+        margin: 2em 0;
+    }
+    .activitiesoverview-style-filter-menu {
+        width: 175px;
+        font-size: 1em;
+        padding: 0.75em 1em;
+    }
+    .activities-cards-inner-container {
+        padding: 0 1em;
+        gap: 3em;
+        margin: 0 1.5em;
+    }
+    .activities-card {
+        width: 300px;
+        height: 225px;
+        margin: 0.75em;
+        padding: 0.25em;
+    }
+    .select-activities-page label{
+        font-size: 1em;
+    }
+    .select-activities-page select {
+        font-size: 1em;
+    }
 }
 
 /* Grote tablets en kleine computer schermen */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-
+    .activitiesoverview-header-content {
+        padding: 7em 1em;
+        flex-basis: 70%;
+        margin: 1em;
+    }
+    .activitiesoverview-header-content h1 {
+        margin: 1em;
+    }
+    .activitiesoverview-text-section {
+        margin: 5em 0 3em 0;
+        padding: 1em 2em;
+        line-height: 1.5em;
+    }
+    .activitiesoverview-text-section-content {
+        max-width: 60%;
+    }
+    .activitiesoverview-text-section-content h3 {
+        margin: 1em 0;
+    }
+    .activitiesoverview-text-section-content h5 {
+        margin-bottom: 1em;
+    }
+    .activitiesoverview-filter-and-buttons {
+        margin: 2em 0;
+    }
+    .activitiesoverview-style-filter-menu {
+        width: 175px;
+        font-size: 1em;
+        padding: 0.75em 1em;
+    }
+    .activities-cards-inner-container {
+        padding: 0 1em;
+        gap: 1.50em;
+        margin: 0 2em;
+    }
+    .activities-card {
+        width: 400px;
+        height: 300px;
+        margin: 1.50em;
+        padding: 0.25em;
+    }
+    .select-activities-page label{
+        font-size: 1em;
+    }
+    .select-activities-page select {
+        font-size: 1em;
+    }
 }
 
 /* Standaard computer scherm */
 @media screen and (min-width: 1200px) and (max-width: 1599px) {
-
+    .activitiesoverview-header-content {
+        padding: 10em 1em;
+        flex-basis: 80%;
+        margin: 1em;
+    }
+    .activitiesoverview-header-content h1 {
+        margin: 1em;
+    }
+    .activitiesoverview-text-section {
+        margin: 5em 0 3em 0;
+        padding: 1em 2em;
+        line-height: 1.75em;
+    }
+    .activitiesoverview-text-section-content {
+        max-width: 60%;
+    }
+    .activitiesoverview-text-section-content h3 {
+        margin: 1em 0;
+    }
+    .activitiesoverview-text-section-content h5 {
+        margin-bottom: 1em;
+    }
+    .activitiesoverview-filter-and-buttons {
+        margin: 2em 0;
+    }
+    .activitiesoverview-style-filter-menu {
+        width: 200px;
+        font-size: 1.25em;
+        padding: 0.5em 1em;
+    }
+    .activities-cards-inner-container {
+        padding: 0 1.5em;
+        gap: 3em;
+        margin: 0 1em;
+    }
+    .activities-card {
+        width: 500px;
+        height: 375px;
+        margin: 3em;
+        padding: 0.5em;
+    }
+    .select-activities-page label{
+        font-size: 1.25em;
+    }
+    .select-activities-page select {
+        font-size: 1.25em;
+    }
 }
 
 /* Extra Large computer schermen */
 @media screen and (min-width: 1600px) {
     .activitiesoverview-header-content {
-        padding: 20em 1em;
-        flex-basis: 60%;
+        padding: 18em 1em;
+        flex-basis: 50%;
         margin: 1em;
     }
     .activitiesoverview-header-content h1 {
@@ -169,7 +393,7 @@
         line-height: 2em;
     }
     .activitiesoverview-text-section-content {
-        max-width: 40%;
+        max-width: 60%;
     }
     .activitiesoverview-text-section-content h3 {
         margin: 1em 0;
@@ -181,11 +405,10 @@
         margin: 3em 0;
     }
     .activitiesoverview-style-filter-menu {
-        width: 200px;
+        width: 225px;
         font-size: 1.25em;
         padding: 0.5em 1em;
     }
-
     .activities-cards-inner-container {
         padding: 0 2em;
         gap: 8em;
